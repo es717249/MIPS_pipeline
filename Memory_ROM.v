@@ -28,7 +28,9 @@ module Memory_ROM#(
 		//$readmemh("GPIO_test.hex", rom);	//Test11: 
 		//$readmemh("Test_uartRx.hex", rom);	//Test12: testing uart reading 
 		//$readmemh("Test_uartrxtx.hex", rom);	//Test13: testing uart rx and tx
-		$readmemh("Factorial_uart.hex", rom);	//Test14: Factorial and uart 
+		//$readmemh("Factorial_uart.hex", rom);	//Test14: Factorial and uart 
+
+		$readmemh("Pipelinecode_1.hex", rom);	//Test15: Pipeline testing
 		
 
 

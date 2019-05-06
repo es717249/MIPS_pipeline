@@ -43,8 +43,6 @@ reg [WORD_LENGTH:0]mask= 1<< WORD_LENGTH; //mask to check the carry
 reg [WORD_LENGTH:0]compl_B;
 reg negative_reg=0;
 
-wire zero_w ;
-
 assign dataC = result_reg[31:0];
 
 assign zero = (result_reg==0) ? 1'd1:1'd0;

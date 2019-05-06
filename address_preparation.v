@@ -1,4 +1,4 @@
-module addres_preparation
+module address_preparation
 (
 	input [31:0] Mmemory_output,	//rom instruction content
 	

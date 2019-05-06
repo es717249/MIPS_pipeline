@@ -20,7 +20,10 @@ module decode_instruction
 	output see_uartflag_ind,					//indicator to select Rx flag or Tx flag for the register file
 	output MemWrite,
 	/* output RegWrite, */
-	output PC_En
+	output PC_En,
+	output flag_bne,	/* flag for bne */
+	output flag_beq	/* flag for beq */
+
 	)				//to control the source data for srcA
 ;
 
@@ -35,19 +38,13 @@ reg flag_R_type_reg;
 reg flag_I_type_reg;
 reg [1:0]flag_J_type_reg;
 reg MemWrite_reg;
-/* reg RegWrite_reg; */
 reg [1:0] writedata_indicator_reg;
 reg see_uartflag_ind_reg;
-/* reg PCWrite_reg; */
-/* reg Branch_reg; */
-/* reg selectPC_reg; */
+reg flag_bne_reg;
+reg flag_beq_reg;
 
-/* wire Branch; */
-/* wire PCWrite; */
 //####################     Assignations   #######################
 
-/* assign PCWrite = PCWrite_reg; */
-/* assign Branch = Branch_reg;*/
 assign RegDst_reg= destination_reg_indicator ;
 assign ALUControl =ALUControl_reg;
 assign flag_sw = flag_sw_reg ;
@@ -60,10 +57,9 @@ assign mult_operation = mult_operation_reg;
 assign mflo_flag = mflo_flag_reg;
 assign MemtoReg = writedata_indicator_reg;
 assign see_uartflag_ind = see_uartflag_ind_reg;
-/* assign selectPC_out = selectPC_reg; */
-//assign selectPC_out = (addr_input ==7'd0 ) ? (1'b0) : (1'b1) ;
 assign MemWrite = MemWrite_reg;		/* Signal to write to RAM memory */
-//assign RegWrite = 1;			/* @TODO: Check if always activate the writing is ok*/
+assign flag_bne = flag_bne_reg;
+assign flag_beq = flag_beq_reg;
 assign PC_En  = 1 ;    /* Signal for Program counter enable register */
 
 
@@ -80,7 +76,8 @@ always @(opcode_reg,funct_reg,zero) begin
 		see_uartflag_ind_reg = 0;			//select Rx flag
 
 		flag_sw_reg		=1'b0;
-		
+		flag_bne_reg = 1'b0;
+		flag_beq_reg = 1'b0;
 		
 
 		case(funct_reg)
@@ -188,7 +185,8 @@ always @(opcode_reg,funct_reg,zero) begin
 				ALUControl_reg<=4'd0;			//not relevant
 				ALUSrcBselector_reg=1'd0;			//not relevant
 				MemWrite_reg    =0; /* not relevant */
-				
+				flag_bne_reg = 1'b0;
+				flag_beq_reg = 1'b0;
 			end
 			6'b000011: //Jump and link(jal)- 0x03
 			begin
@@ -203,7 +201,9 @@ always @(opcode_reg,funct_reg,zero) begin
 				ALUControl_reg<=4'd0;			//not relevant
 				ALUSrcBselector_reg=1'd0;		//not relevant
 				MemWrite_reg    =0; /* not relevant */
-				
+				flag_bne_reg = 1'b0;
+				flag_beq_reg = 1'b0;
+
 			end
 
 			6'b000100: //beq - 0x04
@@ -219,12 +219,15 @@ always @(opcode_reg,funct_reg,zero) begin
 				flag_I_type_reg = 1;	//Indicate it is I type instruction
 				
 
-				if(zero==1'b1)begin
-				   flag_J_type_reg = 3;	//To select Branch_addr in "MUX_to_updatePC_withJump" mux
-				end else begin
-				   //if(zero==1'b0)
-                     flag_J_type_reg = 0;	//Don't branch
-				end
+//				if(zero==1'b1)begin
+//				   flag_J_type_reg = 3;	//To select Branch_addr in "MUX_to_updatePC_withJump" mux
+//				end else begin
+//				   //if(zero==1'b0)
+//                     flag_J_type_reg = 0;	//Don't branch				
+//				end
+				flag_bne_reg = 1'b0;
+				flag_beq_reg = 1'b1;
+				flag_J_type_reg = 0;	//Don't branch
 				MemWrite_reg    =0; /* not relevant */
 				
 			end 
@@ -238,13 +241,17 @@ always @(opcode_reg,funct_reg,zero) begin
 				see_uartflag_ind_reg = 0;			//select Rx flag
 
 				flag_sw_reg=1'b0;		
+				flag_bne_reg = 1'b1;
+				flag_beq_reg = 1'b0;
+
 				ALUSrcBselector_reg=1'd0;	
 				flag_I_type_reg = 1;	//Indicate it is I type instruction
-				if(zero==1'b0)begin
-				   flag_J_type_reg = 3;	//To select Branch_addr in "MUX_to_updatePC_withJump" mux
-				end else begin
-                   flag_J_type_reg = 0;	//To select Branch_addr in "MUX_to_updatePC_withJump" mux
-				end
+//				if(zero==1'b0)begin
+//				   flag_J_type_reg = 3;	//To select Branch_addr in "MUX_to_updatePC_withJump" mux
+//				end else begin
+//                   flag_J_type_reg = 0;	//To select Branch_addr in "MUX_to_updatePC_withJump" mux
+//				end
+				flag_J_type_reg = 0;	//To select Branch_addr in "MUX_to_updatePC_withJump" mux	
 				MemWrite_reg    =0; /* not relevant */
 				
 			end 
@@ -261,7 +268,8 @@ always @(opcode_reg,funct_reg,zero) begin
 				flag_I_type_reg = 1;	//Indicate it is I type instruction
 				flag_J_type_reg = 0;	//Not a J type instruction
 				MemWrite_reg    =0; /* not relevant */
-				
+				flag_bne_reg = 1'b0;
+				flag_beq_reg = 1'b0;
 			end
 			6'b000111: //Uart_readFlag_tx  - 0x07
 			begin 
@@ -276,7 +284,8 @@ always @(opcode_reg,funct_reg,zero) begin
 				flag_I_type_reg = 1;	//Indicate it is I type instruction
 				flag_J_type_reg = 0;	//Not a J type instruction
 				MemWrite_reg    =0; /* not relevant */
-				
+				flag_bne_reg = 1'b0;
+				flag_beq_reg = 1'b0;
 			end 
 
 			6'b001000: //addi - 0x08
@@ -293,7 +302,8 @@ always @(opcode_reg,funct_reg,zero) begin
 				flag_I_type_reg = 1;	//Indicate it is I type instruction
 				flag_J_type_reg = 0;	//Not a J type instruction
 				MemWrite_reg    =0; /* not relevant */
-				
+				flag_bne_reg = 1'b0;
+				flag_beq_reg = 1'b0;
 			end			
 			6'b001010:	//slti - 0x0A
 			begin
@@ -309,7 +319,8 @@ always @(opcode_reg,funct_reg,zero) begin
 				flag_I_type_reg = 1;	//Indicate it is I type instruction
 				flag_J_type_reg = 0;	//Not a J type instruction
 				MemWrite_reg    =0; /* not relevant */
-				
+				flag_bne_reg = 1'b0;
+				flag_beq_reg = 1'b0;
 			end
 			6'b001100: //andi - 0x0C
 			begin
@@ -324,7 +335,8 @@ always @(opcode_reg,funct_reg,zero) begin
 				flag_I_type_reg = 1;	//Indicate it is I type instruction
 				flag_J_type_reg = 0;	//Not a J type instruction
 				MemWrite_reg    =0; /* not relevant */
-				
+				flag_bne_reg = 1'b0;
+				flag_beq_reg = 1'b0;
 			end
 			6'b001101: //ori - 0x0D
 			begin
@@ -339,7 +351,8 @@ always @(opcode_reg,funct_reg,zero) begin
 				flag_I_type_reg = 1;	//Indicate it is I type instruction
 				flag_J_type_reg = 0;	//Not a J type instruction
 				MemWrite_reg    =0; /* not relevant */
-				
+				flag_bne_reg = 1'b0;
+				flag_beq_reg = 1'b0;
 			end
 			6'b001111:	//lui - 0x0F
 			begin
@@ -355,7 +368,8 @@ always @(opcode_reg,funct_reg,zero) begin
 				flag_I_type_reg = 1;	//Indicate it is I type instruction
 				flag_J_type_reg = 0;	//Not a J type instruction
 				MemWrite_reg    =0; /* not relevant */
-				
+				flag_bne_reg = 1'b0;
+				flag_beq_reg = 1'b0;
 			end
 			6'b100011: /* lw	- 0x23 */
 			begin
@@ -370,7 +384,8 @@ always @(opcode_reg,funct_reg,zero) begin
 				flag_I_type_reg = 1;	//Indicate it is I type instruction
 				flag_J_type_reg = 0;	//Not a J type instruction
 				MemWrite_reg    =0; /* not relevant */
-				
+				flag_bne_reg = 1'b0;
+				flag_beq_reg = 1'b0;
 			end
 			6'b101011: //sw - 0x2B
 			begin
@@ -380,7 +395,8 @@ always @(opcode_reg,funct_reg,zero) begin
 				flag_lw_reg=1'd0;
 				writedata_indicator_reg = 2'd0;		//useful to save ALUout result into the register file
 				see_uartflag_ind_reg = 0;			//select Rx flag
-
+				flag_bne_reg = 1'b0;
+				flag_beq_reg = 1'b0;
 				flag_sw_reg=1'b1;	
 				ALUSrcBselector_reg=1'd1;	
 				flag_I_type_reg = 1;	//Indicate it is I type instruction
@@ -396,7 +412,8 @@ always @(opcode_reg,funct_reg,zero) begin
 				flag_lw_reg=1'd0;
 				writedata_indicator_reg = 2'd0;		//useful to save ALUout result into the register file
 				see_uartflag_ind_reg = 0;			//select Rx flag
-
+				flag_bne_reg = 1'b0;
+				flag_beq_reg = 1'b0;
 				flag_sw_reg=1'b0;	
 				ALUSrcBselector_reg=1'd0;
 				flag_I_type_reg = 1;	//Indicate it is I type instruction
