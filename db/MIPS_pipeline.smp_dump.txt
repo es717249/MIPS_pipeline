@@ -1,0 +1,23 @@
+
+State Machine - |MIPS_pipeline|UART_controller:uart_ctrlUnit|state_tx
+Name state_tx.UPDATE_DATA state_tx.SHIFT state_tx.START_AND_READ state_tx.IDLE state_tx.STOP 
+state_tx.IDLE 0 0 0 0 0 
+state_tx.START_AND_READ 0 0 1 1 0 
+state_tx.SHIFT 0 1 0 1 0 
+state_tx.UPDATE_DATA 1 0 0 1 0 
+state_tx.STOP 0 0 0 1 1 
+
+State Machine - |MIPS_pipeline|UART_controller:uart_ctrlUnit|UART_TX:DUV_UART_TX|state
+Name state.STOP state.SHIFT state.START state.IDLE 
+state.IDLE 0 0 0 0 
+state.START 0 0 1 1 
+state.SHIFT 0 1 0 1 
+state.STOP 1 0 0 1 
+
+State Machine - |MIPS_pipeline|UART_controller:uart_ctrlUnit|UART_RX:DUV_RX|state
+Name state.STOP state.DELAY state.START state.IDLE state.DEFAULT 
+state.IDLE 0 0 0 0 0 
+state.START 0 0 1 1 0 
+state.DELAY 0 1 0 1 0 
+state.STOP 1 0 0 1 0 
+state.DEFAULT 0 0 0 1 1 

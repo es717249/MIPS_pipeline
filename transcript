@@ -1,0 +1,545 @@
+# Loading project MIPS_pipeline
+# Compile of Adder.v was successful.
+# Compile of address_preparation.v was successful.
+# Compile of ALU.v was successful.
+# Compile of ASCI_translator.v was successful.
+# Compile of ControlUnit.v was successful.
+# Compile of decode_instruction.v was successful.
+# Compile of Demux1to2.v was successful.
+# Compile of Demux1to4.v was successful.
+# Compile of Demux1to32.v was successful.
+# Compile of GPIO_controller.v was successful.
+# Compile of Memory_RAM.v was successful.
+# Compile of Memory_ROM.v was successful.
+# Compile of MIPS_pipeline.v was successful.
+# Compile of MIPS_pipeline_TB.v was successful.
+# Compile of mux2to1.v was successful.
+# Compile of mux4to1.v was successful.
+# Compile of Mux32to1.v was successful.
+# Compile of Register.v was successful.
+# Compile of Register_File.v was successful.
+# Compile of Shift_Concatenate.v was successful.
+# Compile of SignExtend_module.v was successful.
+# Compile of UART_controller.v was successful.
+# Compile of UART_RX.v was successful.
+# Compile of UART_TX.v was successful.
+# Compile of VirtualAddress_RAM .v was successful.
+# Compile of VirtualMemory_unit.v was successful.
+# 26 compiles, 0 failed with no errors.
+# Compile of Adder.v was successful.
+# Compile of address_preparation.v was successful.
+# Compile of ALU.v was successful.
+# Compile of ASCI_translator.v was successful.
+# Compile of ControlUnit.v was successful.
+# Compile of decode_instruction.v was successful.
+# Compile of Demux1to2.v was successful.
+# Compile of Demux1to4.v was successful.
+# Compile of Demux1to32.v was successful.
+# Compile of GPIO_controller.v was successful.
+# Compile of Memory_RAM.v was successful.
+# Compile of Memory_ROM.v was successful.
+# Compile of MIPS_pipeline.v was successful.
+# Compile of MIPS_pipeline_TB.v was successful.
+# Compile of mux2to1.v was successful.
+# Compile of mux4to1.v was successful.
+# Compile of Mux32to1.v was successful.
+# Compile of Register.v was successful.
+# Compile of Register_File.v was successful.
+# Compile of Shift_Concatenate.v was successful.
+# Compile of SignExtend_module.v was successful.
+# Compile of UART_controller.v was successful.
+# Compile of UART_RX.v was successful.
+# Compile of UART_TX.v was successful.
+# Compile of VirtualAddress_RAM .v was successful.
+# Compile of VirtualMemory_unit.v was successful.
+# 26 compiles, 0 failed with no errors.
+# Compile of Adder.v was successful.
+# Compile of address_preparation.v was successful.
+# Compile of ALU.v was successful.
+# Compile of ASCI_translator.v was successful.
+# Compile of ControlUnit.v was successful.
+# Compile of decode_instruction.v was successful.
+# Compile of Demux1to2.v was successful.
+# Compile of Demux1to4.v was successful.
+# Compile of Demux1to32.v was successful.
+# Compile of GPIO_controller.v was successful.
+# Compile of Memory_RAM.v was successful.
+# Compile of Memory_ROM.v was successful.
+# Compile of MIPS_pipeline.v was successful.
+# Compile of MIPS_pipeline_TB.v was successful.
+# Compile of mux2to1.v was successful.
+# Compile of mux4to1.v was successful.
+# Compile of Mux32to1.v was successful.
+# Compile of Register.v was successful.
+# Compile of Register_File.v was successful.
+# Compile of Shift_Concatenate.v was successful.
+# Compile of SignExtend_module.v was successful.
+# Compile of UART_controller.v was successful.
+# Compile of UART_RX.v was successful.
+# Compile of UART_TX.v was successful.
+# Compile of VirtualAddress_RAM .v was successful.
+# Compile of VirtualMemory_unit.v was successful.
+# 26 compiles, 0 failed with no errors.
+vsim -voptargs=+acc=npr work.MIPS_pipeline_TB
+# vsim -voptargs="+acc=npr" work.MIPS_pipeline_TB 
+# Start time: 23:07:14 on May 17,2019
+# Loading work.MIPS_pipeline_TB
+# Loading work.MIPS_pipeline
+# Loading work.mux4to1
+# Loading work.mux2to1
+# Loading work.Register
+# Loading work.VirtualMemory_unit
+# Loading work.Memory_ROM
+# Loading work.Adder
+# Loading work.ControlUnit
+# Loading work.address_preparation
+# Loading work.decode_instruction
+# Loading work.SignExtend_module
+# Loading work.Register_File
+# Loading work.Demux1to32
+# Loading work.Mux32to1
+# Loading work.Shift_Concatenate
+# Loading work.ALU
+# Loading work.Demux1to2
+# Loading work.Demux1to4
+# Loading work.VirtualAddress_RAM
+# Loading work.Memory_RAM
+# Loading work.UART_controller
+# Loading work.UART_RX
+# Loading work.ASCI_translator
+# Loading work.UART_TX
+# Loading work.GPIO_controller
+do /home/n3stor/Documents/ITESO/Master/Microcontroller_Design/Quartus_projects/MIPS_pipeline/wave.do
+run
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+mem load -filltype value -filldata 33 -fillradix hexadecimal /MIPS_pipeline_TB/testing_mips/mem_RAM/ram(1)
+# Compile of Adder.v was successful.
+# Compile of address_preparation.v was successful.
+# Compile of ALU.v was successful.
+# Compile of ASCI_translator.v was successful.
+# Compile of ControlUnit.v was successful.
+# Compile of decode_instruction.v was successful.
+# Compile of Demux1to2.v was successful.
+# Compile of Demux1to4.v was successful.
+# Compile of Demux1to32.v was successful.
+# Compile of GPIO_controller.v was successful.
+# Compile of Memory_RAM.v was successful.
+# Compile of Memory_ROM.v was successful.
+# Compile of MIPS_pipeline.v was successful.
+# Compile of MIPS_pipeline_TB.v was successful.
+# Compile of mux2to1.v was successful.
+# Compile of mux4to1.v was successful.
+# Compile of Mux32to1.v was successful.
+# Compile of Register.v was successful.
+# Compile of Register_File.v was successful.
+# Compile of Shift_Concatenate.v was successful.
+# Compile of SignExtend_module.v was successful.
+# Compile of UART_controller.v was successful.
+# Compile of UART_RX.v was successful.
+# Compile of UART_TX.v was successful.
+# Compile of VirtualAddress_RAM .v was successful.
+# Compile of VirtualMemory_unit.v was successful.
+# 26 compiles, 0 failed with no errors.
+restart
+# Loading work.MIPS_pipeline_TB
+# Loading work.MIPS_pipeline
+# Loading work.mux4to1
+# Loading work.mux2to1
+# Loading work.Register
+# Loading work.VirtualMemory_unit
+# Loading work.Memory_ROM
+# Loading work.Adder
+# Loading work.ControlUnit
+# Loading work.address_preparation
+# Loading work.decode_instruction
+# Loading work.SignExtend_module
+# Loading work.Register_File
+# Loading work.Demux1to32
+# Loading work.Mux32to1
+# Loading work.Shift_Concatenate
+# Loading work.ALU
+# Loading work.Demux1to2
+# Loading work.Demux1to4
+# Loading work.VirtualAddress_RAM
+# Loading work.Memory_RAM
+# Loading work.UART_controller
+# Loading work.UART_RX
+# Loading work.ASCI_translator
+# Loading work.UART_TX
+# Loading work.GPIO_controller
+# Compile of Adder.v was successful.
+# Compile of address_preparation.v was successful.
+# Compile of ALU.v was successful.
+# Compile of ASCI_translator.v was successful.
+# Compile of ControlUnit.v was successful.
+# Compile of decode_instruction.v was successful.
+# Compile of Demux1to2.v was successful.
+# Compile of Demux1to4.v was successful.
+# Compile of Demux1to32.v was successful.
+# Compile of GPIO_controller.v was successful.
+# Compile of Memory_RAM.v was successful.
+# Compile of Memory_ROM.v was successful.
+# Compile of MIPS_pipeline.v was successful.
+# Compile of MIPS_pipeline_TB.v was successful.
+# Compile of mux2to1.v was successful.
+# Compile of mux4to1.v was successful.
+# Compile of Mux32to1.v was successful.
+# Compile of Register.v was successful.
+# Compile of Register_File.v was successful.
+# Compile of Shift_Concatenate.v was successful.
+# Compile of SignExtend_module.v was successful.
+# Compile of UART_controller.v was successful.
+# Compile of UART_RX.v was successful.
+# Compile of UART_TX.v was successful.
+# Compile of VirtualAddress_RAM .v was successful.
+# Compile of VirtualMemory_unit.v was successful.
+# 26 compiles, 0 failed with no errors.
+run
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+mem load -filltype value -filldata 33 -fillradix hexadecimal /MIPS_pipeline_TB/testing_mips/mem_RAM/ram(1)
+run
+# Compile of Adder.v was successful.
+# Compile of address_preparation.v was successful.
+# Compile of ALU.v was successful.
+# Compile of ASCI_translator.v was successful.
+# Compile of ControlUnit.v was successful.
+# Compile of decode_instruction.v was successful.
+# Compile of Demux1to2.v was successful.
+# Compile of Demux1to4.v was successful.
+# Compile of Demux1to32.v was successful.
+# Compile of GPIO_controller.v was successful.
+# Compile of Memory_RAM.v was successful.
+# Compile of Memory_ROM.v was successful.
+# Compile of MIPS_pipeline.v was successful.
+# Compile of MIPS_pipeline_TB.v was successful.
+# Compile of mux2to1.v was successful.
+# Compile of mux4to1.v was successful.
+# Compile of Mux32to1.v was successful.
+# Compile of Register.v was successful.
+# Compile of Register_File.v was successful.
+# Compile of Shift_Concatenate.v was successful.
+# Compile of SignExtend_module.v was successful.
+# Compile of UART_controller.v was successful.
+# Compile of UART_RX.v was successful.
+# Compile of UART_TX.v was successful.
+# Compile of VirtualAddress_RAM .v was successful.
+# Compile of VirtualMemory_unit.v was successful.
+# 26 compiles, 0 failed with no errors.
+restart
+# Loading work.MIPS_pipeline_TB
+# Loading work.MIPS_pipeline
+# Loading work.mux4to1
+# Loading work.mux2to1
+# Loading work.Register
+# Loading work.VirtualMemory_unit
+# Loading work.Memory_ROM
+# Loading work.Adder
+# Loading work.ControlUnit
+# Loading work.address_preparation
+# Loading work.decode_instruction
+# Loading work.SignExtend_module
+# Loading work.Register_File
+# Loading work.Demux1to32
+# Loading work.Mux32to1
+# Loading work.Shift_Concatenate
+# Loading work.ALU
+# Loading work.Demux1to2
+# Loading work.Demux1to4
+# Loading work.VirtualAddress_RAM
+# Loading work.Memory_RAM
+# Loading work.UART_controller
+# Loading work.UART_RX
+# Loading work.ASCI_translator
+# Loading work.UART_TX
+# Loading work.GPIO_controller
+run
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+mem load -filltype value -filldata 33 -fillradix hexadecimal /MIPS_pipeline_TB/testing_mips/mem_RAM/ram(1)
+# Compile of Adder.v was successful.
+# Compile of address_preparation.v was successful.
+# Compile of ALU.v was successful.
+# Compile of ASCI_translator.v was successful.
+# Compile of ControlUnit.v was successful.
+# Compile of decode_instruction.v was successful.
+# Compile of Demux1to2.v was successful.
+# Compile of Demux1to4.v was successful.
+# Compile of Demux1to32.v was successful.
+# Compile of GPIO_controller.v was successful.
+# Compile of Memory_RAM.v was successful.
+# Compile of Memory_ROM.v was successful.
+# Compile of MIPS_pipeline.v was successful.
+# Compile of MIPS_pipeline_TB.v was successful.
+# Compile of mux2to1.v was successful.
+# Compile of mux4to1.v was successful.
+# Compile of Mux32to1.v was successful.
+# Compile of Register.v was successful.
+# Compile of Register_File.v was successful.
+# Compile of Shift_Concatenate.v was successful.
+# Compile of SignExtend_module.v was successful.
+# Compile of UART_controller.v was successful.
+# Compile of UART_RX.v was successful.
+# Compile of UART_TX.v was successful.
+# Compile of VirtualAddress_RAM .v was successful.
+# Compile of VirtualMemory_unit.v was successful.
+# 26 compiles, 0 failed with no errors.
+restart
+# Loading work.MIPS_pipeline_TB
+# Loading work.MIPS_pipeline
+# Loading work.mux4to1
+# Loading work.mux2to1
+# Loading work.Register
+# Loading work.VirtualMemory_unit
+# Loading work.Memory_ROM
+# Loading work.Adder
+# Loading work.ControlUnit
+# Loading work.address_preparation
+# Loading work.decode_instruction
+# Loading work.SignExtend_module
+# Loading work.Register_File
+# Loading work.Demux1to32
+# Loading work.Mux32to1
+# Loading work.Shift_Concatenate
+# Loading work.ALU
+# Loading work.Demux1to2
+# Loading work.Demux1to4
+# Loading work.VirtualAddress_RAM
+# Loading work.Memory_RAM
+# Loading work.UART_controller
+# Loading work.UART_RX
+# Loading work.ASCI_translator
+# Loading work.UART_TX
+# Loading work.GPIO_controller
+run
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+mem load -filltype value -filldata 33 -fillradix hexadecimal /MIPS_pipeline_TB/testing_mips/mem_RAM/ram(1)
+run
+add wave -position end sim:/MIPS_pipeline_TB/testing_mips/Decode_Pipeline_ALUControl/*
+add wave -position 10 sim:/MIPS_pipeline_TB/testing_mips/ProgramCounter_Reg/*
+restart
+run
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+mem load -filltype value -filldata 33 -fillradix hexadecimal /MIPS_pipeline_TB/testing_mips/mem_RAM/ram(1)
+run
+# Compile of Adder.v was successful.
+# Compile of address_preparation.v was successful.
+# Compile of ALU.v was successful.
+# Compile of ASCI_translator.v was successful.
+# Compile of ControlUnit.v was successful.
+# Compile of decode_instruction.v was successful.
+# Compile of Demux1to2.v was successful.
+# Compile of Demux1to4.v was successful.
+# Compile of Demux1to32.v was successful.
+# Compile of GPIO_controller.v was successful.
+# Compile of Memory_RAM.v was successful.
+# Compile of Memory_ROM.v was successful.
+# Compile of MIPS_pipeline.v was successful.
+# Compile of MIPS_pipeline_TB.v was successful.
+# Compile of mux2to1.v was successful.
+# Compile of mux4to1.v was successful.
+# Compile of Mux32to1.v was successful.
+# Compile of Register.v was successful.
+# Compile of Register_File.v was successful.
+# Compile of Shift_Concatenate.v was successful.
+# Compile of SignExtend_module.v was successful.
+# Compile of UART_controller.v was successful.
+# Compile of UART_RX.v was successful.
+# Compile of UART_TX.v was successful.
+# Compile of VirtualAddress_RAM .v was successful.
+# Compile of VirtualMemory_unit.v was successful.
+# 26 compiles, 0 failed with no errors.
+restart
+# Loading work.MIPS_pipeline_TB
+# Loading work.MIPS_pipeline
+# Loading work.mux4to1
+# Loading work.mux2to1
+# Loading work.Register
+# Loading work.VirtualMemory_unit
+# Loading work.Memory_ROM
+# Loading work.Adder
+# Loading work.ControlUnit
+# Loading work.address_preparation
+# Loading work.decode_instruction
+# Loading work.SignExtend_module
+# Loading work.Register_File
+# Loading work.Demux1to32
+# Loading work.Mux32to1
+# Loading work.Shift_Concatenate
+# Loading work.ALU
+# Loading work.Demux1to2
+# Loading work.Demux1to4
+# Loading work.VirtualAddress_RAM
+# Loading work.Memory_RAM
+# Loading work.UART_controller
+# Loading work.UART_RX
+# Loading work.ASCI_translator
+# Loading work.UART_TX
+# Loading work.GPIO_controller
+run
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+# Compile of Adder.v was successful.
+# Compile of address_preparation.v was successful.
+# Compile of ALU.v was successful.
+# Compile of ASCI_translator.v was successful.
+# Compile of ControlUnit.v was successful.
+# Compile of decode_instruction.v was successful.
+# Compile of Demux1to2.v was successful.
+# Compile of Demux1to4.v was successful.
+# Compile of Demux1to32.v was successful.
+# Compile of GPIO_controller.v was successful.
+# Compile of Memory_RAM.v was successful.
+# Compile of Memory_ROM.v was successful.
+# Compile of MIPS_pipeline.v was successful.
+# Compile of MIPS_pipeline_TB.v was successful.
+# Compile of mux2to1.v was successful.
+# Compile of mux4to1.v was successful.
+# Compile of Mux32to1.v was successful.
+# Compile of Register.v was successful.
+# Compile of Register_File.v was successful.
+# Compile of Shift_Concatenate.v was successful.
+# Compile of SignExtend_module.v was successful.
+# Compile of UART_controller.v was successful.
+# Compile of UART_RX.v was successful.
+# Compile of UART_TX.v was successful.
+# Compile of VirtualAddress_RAM .v was successful.
+# Compile of VirtualMemory_unit.v was successful.
+# 26 compiles, 0 failed with no errors.
+restart
+# Loading work.MIPS_pipeline_TB
+# Loading work.MIPS_pipeline
+# Loading work.mux4to1
+# Loading work.mux2to1
+# Loading work.Register
+# Loading work.VirtualMemory_unit
+# Loading work.Memory_ROM
+# Loading work.Adder
+# Loading work.ControlUnit
+# Loading work.address_preparation
+# Loading work.decode_instruction
+# Loading work.SignExtend_module
+# Loading work.Register_File
+# Loading work.Demux1to32
+# Loading work.Mux32to1
+# Loading work.Shift_Concatenate
+# Loading work.ALU
+# Loading work.Demux1to2
+# Loading work.Demux1to4
+# Loading work.VirtualAddress_RAM
+# Loading work.Memory_RAM
+# Loading work.UART_controller
+# Loading work.UART_RX
+# Loading work.ASCI_translator
+# Loading work.UART_TX
+# Loading work.GPIO_controller
+run
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+mem load -filltype value -filldata 33 -fillradix hexadecimal /MIPS_pipeline_TB/testing_mips/mem_RAM/ram(1)
+run
+# WARNING: No extended dataflow license exists
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Compile of Adder.v was successful.
+# Compile of address_preparation.v was successful.
+# Compile of ALU.v was successful.
+# Compile of ASCI_translator.v was successful.
+# Compile of ControlUnit.v was successful.
+# Compile of decode_instruction.v was successful.
+# Compile of Demux1to2.v was successful.
+# Compile of Demux1to4.v was successful.
+# Compile of Demux1to32.v was successful.
+# Compile of GPIO_controller.v was successful.
+# Compile of Memory_RAM.v was successful.
+# Compile of Memory_ROM.v was successful.
+# Compile of MIPS_pipeline.v was successful.
+# Compile of MIPS_pipeline_TB.v was successful.
+# Compile of mux2to1.v was successful.
+# Compile of mux4to1.v was successful.
+# Compile of Mux32to1.v was successful.
+# Compile of Register.v was successful.
+# Compile of Register_File.v was successful.
+# Compile of Shift_Concatenate.v was successful.
+# Compile of SignExtend_module.v was successful.
+# Compile of UART_controller.v was successful.
+# Compile of UART_RX.v was successful.
+# Compile of UART_TX.v was successful.
+# Compile of VirtualAddress_RAM .v was successful.
+# Compile of VirtualMemory_unit.v was successful.
+# 26 compiles, 0 failed with no errors.
+restart
+# Loading work.MIPS_pipeline_TB
+# Loading work.MIPS_pipeline
+# Loading work.mux4to1
+# Loading work.mux2to1
+# Loading work.Register
+# Loading work.VirtualMemory_unit
+# Loading work.Memory_ROM
+# Loading work.Adder
+# Loading work.ControlUnit
+# Loading work.address_preparation
+# Loading work.decode_instruction
+# Loading work.SignExtend_module
+# Loading work.Register_File
+# Loading work.Demux1to32
+# Loading work.Mux32to1
+# Loading work.Shift_Concatenate
+# Loading work.ALU
+# Loading work.Demux1to2
+# Loading work.Demux1to4
+# Loading work.VirtualAddress_RAM
+# Loading work.Memory_RAM
+# Loading work.UART_controller
+# Loading work.UART_RX
+# Loading work.ASCI_translator
+# Loading work.UART_TX
+# Loading work.GPIO_controller
+run
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+run
+add wave -position end sim:/MIPS_pipeline_TB/testing_mips/add_prep/*
+restart
+run
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+mem load -filltype value -filldata 33 -fillradix hexadecimal /MIPS_pipeline_TB/testing_mips/mem_RAM/ram(1)
+run
+run
+# WARNING: No extended dataflow license exists
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+write format wave -window .main_pane.wave.interior.cs.body.pw.wf /home/n3stor/Documents/ITESO/Master/Microcontroller_Design/Quartus_projects/MIPS_pipeline/wave.do

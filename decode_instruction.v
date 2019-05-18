@@ -131,6 +131,16 @@ always @(opcode_reg,funct_reg,zero) begin
 				flag_J_type_reg = 0;	//Not a J type instruction
 				MemWrite_reg    =0; /* not relevant */
 			end
+			6'h22: //sub
+			begin
+				destination_reg_indicator=1;	//destination will be rd
+				ALUControl_reg<=4'd1;			//operation subtract
+				ALUSrcBselector_reg=1'd0;		//select RD2
+				mult_operation_reg =0;			//indicates no mult operation
+				mflo_flag_reg		<=0;			//mflo operation not selected;
+				flag_J_type_reg = 0;	//Not a J type instruction
+				MemWrite_reg    =0; /* not relevant */
+			end
 			6'h25: ///or
 			begin
 				destination_reg_indicator=1;	//destination will be rd

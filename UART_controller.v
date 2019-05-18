@@ -1,10 +1,10 @@
 module UART_controller #(
     parameter DATA_WIDTH=32,
     parameter UART_Nbit=8,
-    /* parameter baudrate=9600,
-    parameter clk_freq=50000000, */
-    parameter baudrate= 5,	
-	parameter clk_freq =50,
+    parameter baudrate=9600,
+    parameter clk_freq=50000000,
+    /* parameter baudrate= 5,	
+	parameter clk_freq =50, */
 
     /* States UART TX */
     parameter IDLE          =0,

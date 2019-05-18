@@ -1,0 +1,2 @@
+Warning (10268): Verilog HDL information at decode_instruction.v(66): always construct contains both blocking and non-blocking assignments File: /home/n3stor/Documents/ITESO/Master/Microcontroller_Design/Quartus_projects/MIPS_pipeline/decode_instruction.v Line: 66
+Warning (10268): Verilog HDL information at ALU.v(55): always construct contains both blocking and non-blocking assignments File: /home/n3stor/Documents/ITESO/Master/Microcontroller_Design/Quartus_projects/MIPS_pipeline/ALU.v Line: 55

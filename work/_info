@@ -1,0 +1,578 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+d/home/n3stor
+vAdder
+Z0 !s110 1558199396
+!i10b 1
+!s100 LXnNFVh3fgVO9[f_e>f3C3
+InAeYZ;naFL_gYKPS961d71
+Z1 VDg1SIo80bB@j0V0VzS_@n1
+Z2 d/home/n3stor/Documents/ITESO/Master/Microcontroller_Design/Quartus_projects/MIPS_pipeline
+w1556071982
+8/home/n3stor/Documents/ITESO/Master/Microcontroller_Design/Quartus_projects/MIPS_pipeline/Adder.v
+F/home/n3stor/Documents/ITESO/Master/Microcontroller_Design/Quartus_projects/MIPS_pipeline/Adder.v
+L0 1
+Z3 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z4 !s108 1558199396.000000
+!s107 /home/n3stor/Documents/ITESO/Master/Microcontroller_Design/Quartus_projects/MIPS_pipeline/Adder.v|
+!s90 -reportprogress|300|-work|work|-stats=none|/home/n3stor/Documents/ITESO/Master/Microcontroller_Design/Quartus_projects/MIPS_pipeline/Adder.v|
+!i113 1
+Z5 o-work work
+Z6 tCvgOpt 0
+n@adder
+vaddress_preparation
+R0
+!i10b 1
+!s100 e]8GBmBRDVSKmWg`X<dVb0
+IZQQ?=k<g<XPF]2cOQbT513
+R1
+R2
+w1557090047
+8/home/n3stor/Documents/ITESO/Master/Microcontroller_Design/Quartus_projects/MIPS_pipeline/address_preparation.v
+F/home/n3stor/Documents/ITESO/Master/Microcontroller_Design/Quartus_projects/MIPS_pipeline/address_preparation.v
+L0 1
+R3
+r1
+!s85 0
+31
+R4
+!s107 /home/n3stor/Documents/ITESO/Master/Microcontroller_Design/Quartus_projects/MIPS_pipeline/address_preparation.v|
+!s90 -reportprogress|300|-work|work|-stats=none|/home/n3stor/Documents/ITESO/Master/Microcontroller_Design/Quartus_projects/MIPS_pipeline/address_preparation.v|
+!i113 1
+R5
+R6
+vALU
+R0
+!i10b 1
+!s100 7ZWlIHW25=MDNI3IZiSA<3
+IfRECZWYFX9=G8]n2oR6DF2
+R1
+R2
+w1558199390
+8/home/n3stor/Documents/ITESO/Master/Microcontroller_Design/Quartus_projects/MIPS_pipeline/ALU.v
+F/home/n3stor/Documents/ITESO/Master/Microcontroller_Design/Quartus_projects/MIPS_pipeline/ALU.v
+L0 23
+R3
+r1
+!s85 0
+31
+R4
+!s107 /home/n3stor/Documents/ITESO/Master/Microcontroller_Design/Quartus_projects/MIPS_pipeline/ALU.v|
+!s90 -reportprogress|300|-work|work|-stats=none|/home/n3stor/Documents/ITESO/Master/Microcontroller_Design/Quartus_projects/MIPS_pipeline/ALU.v|
+!i113 1
+R5
+R6
+n@a@l@u
+vASCI_translator
+R0
+!i10b 1
+!s100 jPgOGA[>a5HGGMK6zlYe22
+IBz9;K]C@Gi1=WIL96kzkE2
+R1
+R2
+w1555304224
+8/home/n3stor/Documents/ITESO/Master/Microcontroller_Design/Quartus_projects/MIPS_pipeline/ASCI_translator.v
+F/home/n3stor/Documents/ITESO/Master/Microcontroller_Design/Quartus_projects/MIPS_pipeline/ASCI_translator.v
+L0 1
+R3
+r1
+!s85 0
+31
+R4
+!s107 /home/n3stor/Documents/ITESO/Master/Microcontroller_Design/Quartus_projects/MIPS_pipeline/ASCI_translator.v|
+!s90 -reportprogress|300|-work|work|-stats=none|/home/n3stor/Documents/ITESO/Master/Microcontroller_Design/Quartus_projects/MIPS_pipeline/ASCI_translator.v|
+!i113 1
+R5
+R6
+n@a@s@c@i_translator
+vControlUnit
+R0
+!i10b 1
+!s100 T0HkIl0?aDz3S7^`V^nFL2
+IoDP^RLTf5L:jmcV>TP`691
+R1
+R2
+w1556504876
+8/home/n3stor/Documents/ITESO/Master/Microcontroller_Design/Quartus_projects/MIPS_pipeline/ControlUnit.v
+F/home/n3stor/Documents/ITESO/Master/Microcontroller_Design/Quartus_projects/MIPS_pipeline/ControlUnit.v
+L0 1
+R3
+r1
+!s85 0
+31
+R4
+!s107 /home/n3stor/Documents/ITESO/Master/Microcontroller_Design/Quartus_projects/MIPS_pipeline/ControlUnit.v|
+!s90 -reportprogress|300|-work|work|-stats=none|/home/n3stor/Documents/ITESO/Master/Microcontroller_Design/Quartus_projects/MIPS_pipeline/ControlUnit.v|
+!i113 1
+R5
+R6
+n@control@unit
+vdecode_instruction
+Z7 !s110 1558199397
+!i10b 1
+!s100 n3_hN>zZm20P<@h9=kbSF2
+IA8SW;NUU@_KS9VKJOO7R22
+R1
+R2
+w1558199391
+8/home/n3stor/Documents/ITESO/Master/Microcontroller_Design/Quartus_projects/MIPS_pipeline/decode_instruction.v
+F/home/n3stor/Documents/ITESO/Master/Microcontroller_Design/Quartus_projects/MIPS_pipeline/decode_instruction.v
+L0 1
+R3
+r1
+!s85 0
+31
+R4
+!s107 /home/n3stor/Documents/ITESO/Master/Microcontroller_Design/Quartus_projects/MIPS_pipeline/decode_instruction.v|
+!s90 -reportprogress|300|-work|work|-stats=none|/home/n3stor/Documents/ITESO/Master/Microcontroller_Design/Quartus_projects/MIPS_pipeline/decode_instruction.v|
+!i113 1
+R5
+R6
+vDemux1to2
+R7
+!i10b 1
+!s100 Mf7zlS^D<YK?NUL`ibO`b3
+IFmg5Z=E`S>iH?59W8K7UU3
+R1
+R2
+w1553679883
+8/home/n3stor/Documents/ITESO/Master/Microcontroller_Design/Quartus_projects/MIPS_pipeline/Demux1to2.v
+F/home/n3stor/Documents/ITESO/Master/Microcontroller_Design/Quartus_projects/MIPS_pipeline/Demux1to2.v
+Z8 L0 26
+R3
+r1
+!s85 0
+31
+Z9 !s108 1558199397.000000
+!s107 /home/n3stor/Documents/ITESO/Master/Microcontroller_Design/Quartus_projects/MIPS_pipeline/Demux1to2.v|
+!s90 -reportprogress|300|-work|work|-stats=none|/home/n3stor/Documents/ITESO/Master/Microcontroller_Design/Quartus_projects/MIPS_pipeline/Demux1to2.v|
+!i113 1
+R5
+R6
+n@demux1to2
+vDemux1to32
+R7
+!i10b 1
+!s100 _LPcDIghRb2R0cYMhAdI:0
+IGZbMD;en3ckgc^BPWbeYS0
+R1
+R2
+w1511869650
+8/home/n3stor/Documents/ITESO/Master/Microcontroller_Design/Quartus_projects/MIPS_pipeline/Demux1to32.v
+F/home/n3stor/Documents/ITESO/Master/Microcontroller_Design/Quartus_projects/MIPS_pipeline/Demux1to32.v
+Z10 L0 29
+R3
+r1
+!s85 0
+31
+R9
+!s107 /home/n3stor/Documents/ITESO/Master/Microcontroller_Design/Quartus_projects/MIPS_pipeline/Demux1to32.v|
+!s90 -reportprogress|300|-work|work|-stats=none|/home/n3stor/Documents/ITESO/Master/Microcontroller_Design/Quartus_projects/MIPS_pipeline/Demux1to32.v|
+!i113 1
+R5
+R6
+n@demux1to32
+vDemux1to4
+R7
+!i10b 1
+!s100 [l3f4HUAYiZGB3EMHI=De0
+IaETK]<hVBQ1SQl[hiQJ`b2
+R1
+R2
+w1554942260
+8/home/n3stor/Documents/ITESO/Master/Microcontroller_Design/Quartus_projects/MIPS_pipeline/Demux1to4.v
+F/home/n3stor/Documents/ITESO/Master/Microcontroller_Design/Quartus_projects/MIPS_pipeline/Demux1to4.v
+R8
+R3
+r1
+!s85 0
+31
+R9
+!s107 /home/n3stor/Documents/ITESO/Master/Microcontroller_Design/Quartus_projects/MIPS_pipeline/Demux1to4.v|
+!s90 -reportprogress|300|-work|work|-stats=none|/home/n3stor/Documents/ITESO/Master/Microcontroller_Design/Quartus_projects/MIPS_pipeline/Demux1to4.v|
+!i113 1
+R5
+R6
+n@demux1to4
+vGPIO_controller
+R7
+!i10b 1
+!s100 Xef[IcT8;UcD8hKkWXchV3
+I[ij89oI61Lc>zl8B>Z2BR0
+R1
+R2
+w1554942264
+8/home/n3stor/Documents/ITESO/Master/Microcontroller_Design/Quartus_projects/MIPS_pipeline/GPIO_controller.v
+F/home/n3stor/Documents/ITESO/Master/Microcontroller_Design/Quartus_projects/MIPS_pipeline/GPIO_controller.v
+L0 1
+R3
+r1
+!s85 0
+31
+R9
+!s107 /home/n3stor/Documents/ITESO/Master/Microcontroller_Design/Quartus_projects/MIPS_pipeline/GPIO_controller.v|
+!s90 -reportprogress|300|-work|work|-stats=none|/home/n3stor/Documents/ITESO/Master/Microcontroller_Design/Quartus_projects/MIPS_pipeline/GPIO_controller.v|
+!i113 1
+R5
+R6
+n@g@p@i@o_controller
+vMemory_RAM
+R7
+!i10b 1
+!s100 Dn1JXaiBJImhkSeOom^242
+I2oj4H86OmoAX^eQhEIa^:2
+R1
+R2
+w1555978956
+8/home/n3stor/Documents/ITESO/Master/Microcontroller_Design/Quartus_projects/MIPS_pipeline/Memory_RAM.v
+F/home/n3stor/Documents/ITESO/Master/Microcontroller_Design/Quartus_projects/MIPS_pipeline/Memory_RAM.v
+L0 1
+R3
+r1
+!s85 0
+31
+R9
+!s107 /home/n3stor/Documents/ITESO/Master/Microcontroller_Design/Quartus_projects/MIPS_pipeline/Memory_RAM.v|
+!s90 -reportprogress|300|-work|work|-stats=none|/home/n3stor/Documents/ITESO/Master/Microcontroller_Design/Quartus_projects/MIPS_pipeline/Memory_RAM.v|
+!i113 1
+R5
+R6
+n@memory_@r@a@m
+vMemory_ROM
+R7
+!i10b 1
+!s100 QGmI_72FE9bFJPgKk[hY^0
+Iife964=28Y^oJ6<V<Sj=[1
+R1
+R2
+w1557089773
+8/home/n3stor/Documents/ITESO/Master/Microcontroller_Design/Quartus_projects/MIPS_pipeline/Memory_ROM.v
+F/home/n3stor/Documents/ITESO/Master/Microcontroller_Design/Quartus_projects/MIPS_pipeline/Memory_ROM.v
+L0 1
+R3
+r1
+!s85 0
+31
+R9
+!s107 /home/n3stor/Documents/ITESO/Master/Microcontroller_Design/Quartus_projects/MIPS_pipeline/Memory_ROM.v|
+!s90 -reportprogress|300|-work|work|-stats=none|/home/n3stor/Documents/ITESO/Master/Microcontroller_Design/Quartus_projects/MIPS_pipeline/Memory_ROM.v|
+!i113 1
+R5
+R6
+n@memory_@r@o@m
+vMIPS_pipeline
+R7
+!i10b 1
+!s100 _To_TY[l;m><OB11KZoQk1
+II0nb[D5U7gF]b2J3IV^>m0
+R1
+R2
+w1558156146
+8/home/n3stor/Documents/ITESO/Master/Microcontroller_Design/Quartus_projects/MIPS_pipeline/MIPS_pipeline.v
+F/home/n3stor/Documents/ITESO/Master/Microcontroller_Design/Quartus_projects/MIPS_pipeline/MIPS_pipeline.v
+L0 3
+R3
+r1
+!s85 0
+31
+R9
+!s107 /home/n3stor/Documents/ITESO/Master/Microcontroller_Design/Quartus_projects/MIPS_pipeline/MIPS_pipeline.v|
+!s90 -reportprogress|300|-work|work|-stats=none|/home/n3stor/Documents/ITESO/Master/Microcontroller_Design/Quartus_projects/MIPS_pipeline/MIPS_pipeline.v|
+!i113 1
+R5
+R6
+n@m@i@p@s_pipeline
+vMIPS_pipeline_TB
+R7
+!i10b 1
+!s100 amc=NH5WR1SbD>oO0X9OR2
+IMKO5:Z^4?:QDBP?PKR8743
+R1
+R2
+w1558158117
+8/home/n3stor/Documents/ITESO/Master/Microcontroller_Design/Quartus_projects/MIPS_pipeline/MIPS_pipeline_TB.v
+F/home/n3stor/Documents/ITESO/Master/Microcontroller_Design/Quartus_projects/MIPS_pipeline/MIPS_pipeline_TB.v
+L0 6
+R3
+r1
+!s85 0
+31
+R9
+!s107 /home/n3stor/Documents/ITESO/Master/Microcontroller_Design/Quartus_projects/MIPS_pipeline/MIPS_pipeline_TB.v|
+!s90 -reportprogress|300|-work|work|-stats=none|/home/n3stor/Documents/ITESO/Master/Microcontroller_Design/Quartus_projects/MIPS_pipeline/MIPS_pipeline_TB.v|
+!i113 1
+R5
+R6
+n@m@i@p@s_pipeline_@t@b
+vmux2to1
+R7
+!i10b 1
+!s100 ]h=e53W`l^L2@9n6JhS]Z2
+IRZ3l:U;CV:Z=^l9eD42:13
+R1
+R2
+w1512059146
+8/home/n3stor/Documents/ITESO/Master/Microcontroller_Design/Quartus_projects/MIPS_pipeline/mux2to1.v
+F/home/n3stor/Documents/ITESO/Master/Microcontroller_Design/Quartus_projects/MIPS_pipeline/mux2to1.v
+L0 2
+R3
+r1
+!s85 0
+31
+R9
+!s107 /home/n3stor/Documents/ITESO/Master/Microcontroller_Design/Quartus_projects/MIPS_pipeline/mux2to1.v|
+!s90 -reportprogress|300|-work|work|-stats=none|/home/n3stor/Documents/ITESO/Master/Microcontroller_Design/Quartus_projects/MIPS_pipeline/mux2to1.v|
+!i113 1
+R5
+R6
+vMux32to1
+R7
+!i10b 1
+!s100 a<gE;JJT2_ef?i?1lmHAL1
+IW<<YBISMV249QX>AfBW2c1
+R1
+R2
+w1508490384
+8/home/n3stor/Documents/ITESO/Master/Microcontroller_Design/Quartus_projects/MIPS_pipeline/Mux32to1.v
+F/home/n3stor/Documents/ITESO/Master/Microcontroller_Design/Quartus_projects/MIPS_pipeline/Mux32to1.v
+R10
+R3
+r1
+!s85 0
+31
+R9
+!s107 /home/n3stor/Documents/ITESO/Master/Microcontroller_Design/Quartus_projects/MIPS_pipeline/Mux32to1.v|
+!s90 -reportprogress|300|-work|work|-stats=none|/home/n3stor/Documents/ITESO/Master/Microcontroller_Design/Quartus_projects/MIPS_pipeline/Mux32to1.v|
+!i113 1
+R5
+R6
+n@mux32to1
+vmux4to1
+R7
+!i10b 1
+!s100 :^51FU3LKHi2i=eaVhM`f3
+I[KPk<lkf_LN85P@@AR3EZ0
+R1
+R2
+w1512448748
+8/home/n3stor/Documents/ITESO/Master/Microcontroller_Design/Quartus_projects/MIPS_pipeline/mux4to1.v
+F/home/n3stor/Documents/ITESO/Master/Microcontroller_Design/Quartus_projects/MIPS_pipeline/mux4to1.v
+L0 1
+R3
+r1
+!s85 0
+31
+R9
+!s107 /home/n3stor/Documents/ITESO/Master/Microcontroller_Design/Quartus_projects/MIPS_pipeline/mux4to1.v|
+!s90 -reportprogress|300|-work|work|-stats=none|/home/n3stor/Documents/ITESO/Master/Microcontroller_Design/Quartus_projects/MIPS_pipeline/mux4to1.v|
+!i113 1
+R5
+R6
+vRegister
+R7
+!i10b 1
+!s100 >ZIoa^N<2c9ofFdeTgzOn3
+I689zZe08n>=1h=0N[T3AB2
+R1
+R2
+w1555271134
+8/home/n3stor/Documents/ITESO/Master/Microcontroller_Design/Quartus_projects/MIPS_pipeline/Register.v
+F/home/n3stor/Documents/ITESO/Master/Microcontroller_Design/Quartus_projects/MIPS_pipeline/Register.v
+L0 30
+R3
+r1
+!s85 0
+31
+R9
+!s107 /home/n3stor/Documents/ITESO/Master/Microcontroller_Design/Quartus_projects/MIPS_pipeline/Register.v|
+!s90 -reportprogress|300|-work|work|-stats=none|/home/n3stor/Documents/ITESO/Master/Microcontroller_Design/Quartus_projects/MIPS_pipeline/Register.v|
+!i113 1
+R5
+R6
+n@register
+vRegister_File
+R7
+!i10b 1
+!s100 [TXm8aYlIfA><eJGc;a^33
+I844TIA^AB7ZhW>F5i46G[0
+R1
+R2
+w1555389356
+8/home/n3stor/Documents/ITESO/Master/Microcontroller_Design/Quartus_projects/MIPS_pipeline/Register_File.v
+F/home/n3stor/Documents/ITESO/Master/Microcontroller_Design/Quartus_projects/MIPS_pipeline/Register_File.v
+L0 35
+R3
+r1
+!s85 0
+31
+R9
+!s107 /home/n3stor/Documents/ITESO/Master/Microcontroller_Design/Quartus_projects/MIPS_pipeline/Register_File.v|
+!s90 -reportprogress|300|-work|work|-stats=none|/home/n3stor/Documents/ITESO/Master/Microcontroller_Design/Quartus_projects/MIPS_pipeline/Register_File.v|
+!i113 1
+R5
+R6
+n@register_@file
+vShift_Concatenate
+R7
+!i10b 1
+!s100 >9ZNLjebU>EOF^EO2Q:GD1
+II?ea_g]Ab<Y3b`U_ELD@H2
+R1
+R2
+w1553473534
+8/home/n3stor/Documents/ITESO/Master/Microcontroller_Design/Quartus_projects/MIPS_pipeline/Shift_Concatenate.v
+F/home/n3stor/Documents/ITESO/Master/Microcontroller_Design/Quartus_projects/MIPS_pipeline/Shift_Concatenate.v
+L0 1
+R3
+r1
+!s85 0
+31
+R9
+!s107 /home/n3stor/Documents/ITESO/Master/Microcontroller_Design/Quartus_projects/MIPS_pipeline/Shift_Concatenate.v|
+!s90 -reportprogress|300|-work|work|-stats=none|/home/n3stor/Documents/ITESO/Master/Microcontroller_Design/Quartus_projects/MIPS_pipeline/Shift_Concatenate.v|
+!i113 1
+R5
+R6
+n@shift_@concatenate
+vSignExtend_module
+R7
+!i10b 1
+!s100 AgWeCW>cE2MiA0IhJ>iea2
+I=IOo95e@m_6c]KN`[ngD83
+R1
+R2
+w1555389417
+8/home/n3stor/Documents/ITESO/Master/Microcontroller_Design/Quartus_projects/MIPS_pipeline/SignExtend_module.v
+F/home/n3stor/Documents/ITESO/Master/Microcontroller_Design/Quartus_projects/MIPS_pipeline/SignExtend_module.v
+L0 1
+R3
+r1
+!s85 0
+31
+R9
+!s107 /home/n3stor/Documents/ITESO/Master/Microcontroller_Design/Quartus_projects/MIPS_pipeline/SignExtend_module.v|
+!s90 -reportprogress|300|-work|work|-stats=none|/home/n3stor/Documents/ITESO/Master/Microcontroller_Design/Quartus_projects/MIPS_pipeline/SignExtend_module.v|
+!i113 1
+R5
+R6
+n@sign@extend_module
+vUART_controller
+R7
+!i10b 1
+!s100 OjC]<j9IKeQS1KjCgoUEW3
+II3d@=eihgm6zC[8UL:[2m2
+R1
+R2
+w1557089841
+8/home/n3stor/Documents/ITESO/Master/Microcontroller_Design/Quartus_projects/MIPS_pipeline/UART_controller.v
+F/home/n3stor/Documents/ITESO/Master/Microcontroller_Design/Quartus_projects/MIPS_pipeline/UART_controller.v
+L0 1
+R3
+r1
+!s85 0
+31
+R9
+!s107 /home/n3stor/Documents/ITESO/Master/Microcontroller_Design/Quartus_projects/MIPS_pipeline/UART_controller.v|
+!s90 -reportprogress|300|-work|work|-stats=none|/home/n3stor/Documents/ITESO/Master/Microcontroller_Design/Quartus_projects/MIPS_pipeline/UART_controller.v|
+!i113 1
+R5
+R6
+n@u@a@r@t_controller
+vUART_RX
+R7
+!i10b 1
+!s100 nK@UJZJMKN@?zZ1mm88gQ2
+I==4ObHdSk9J5REOSH`O6c0
+R1
+R2
+w1557089823
+8/home/n3stor/Documents/ITESO/Master/Microcontroller_Design/Quartus_projects/MIPS_pipeline/UART_RX.v
+F/home/n3stor/Documents/ITESO/Master/Microcontroller_Design/Quartus_projects/MIPS_pipeline/UART_RX.v
+L0 41
+R3
+r1
+!s85 0
+31
+R9
+!s107 /home/n3stor/Documents/ITESO/Master/Microcontroller_Design/Quartus_projects/MIPS_pipeline/UART_RX.v|
+!s90 -reportprogress|300|-work|work|-stats=none|/home/n3stor/Documents/ITESO/Master/Microcontroller_Design/Quartus_projects/MIPS_pipeline/UART_RX.v|
+!i113 1
+R5
+R6
+n@u@a@r@t_@r@x
+vUART_TX
+R7
+!i10b 1
+!s100 R;9ETznB40lze__5U22ag1
+IP[VCBkDZEIP5Q_G2]MkN@2
+R1
+R2
+w1557089833
+8/home/n3stor/Documents/ITESO/Master/Microcontroller_Design/Quartus_projects/MIPS_pipeline/UART_TX.v
+F/home/n3stor/Documents/ITESO/Master/Microcontroller_Design/Quartus_projects/MIPS_pipeline/UART_TX.v
+L0 38
+R3
+r1
+!s85 0
+31
+R9
+!s107 /home/n3stor/Documents/ITESO/Master/Microcontroller_Design/Quartus_projects/MIPS_pipeline/UART_TX.v|
+!s90 -reportprogress|300|-work|work|-stats=none|/home/n3stor/Documents/ITESO/Master/Microcontroller_Design/Quartus_projects/MIPS_pipeline/UART_TX.v|
+!i113 1
+R5
+R6
+n@u@a@r@t_@t@x
+vVirtualAddress_RAM
+R7
+!i10b 1
+!s100 Wd1GcHzcfid`A?1O91_QN1
+IP[e@9nj<kV?_g^J827FA41
+R1
+R2
+w1556428821
+8/home/n3stor/Documents/ITESO/Master/Microcontroller_Design/Quartus_projects/MIPS_pipeline/VirtualAddress_RAM .v
+F/home/n3stor/Documents/ITESO/Master/Microcontroller_Design/Quartus_projects/MIPS_pipeline/VirtualAddress_RAM .v
+L0 1
+R3
+r1
+!s85 0
+31
+R9
+!s107 /home/n3stor/Documents/ITESO/Master/Microcontroller_Design/Quartus_projects/MIPS_pipeline/VirtualAddress_RAM .v|
+!s90 -reportprogress|300|-work|work|-stats=none|/home/n3stor/Documents/ITESO/Master/Microcontroller_Design/Quartus_projects/MIPS_pipeline/VirtualAddress_RAM .v|
+!i113 1
+R5
+R6
+n@virtual@address_@r@a@m
+vVirtualMemory_unit
+!s110 1558199398
+!i10b 1
+!s100 @PJJ?aR0kSCU93U`9B[;F1
+IG<mkCBX@iz9e?341^G_Ao3
+R1
+R2
+w1556428756
+8/home/n3stor/Documents/ITESO/Master/Microcontroller_Design/Quartus_projects/MIPS_pipeline/VirtualMemory_unit.v
+F/home/n3stor/Documents/ITESO/Master/Microcontroller_Design/Quartus_projects/MIPS_pipeline/VirtualMemory_unit.v
+L0 1
+R3
+r1
+!s85 0
+31
+R9
+!s107 /home/n3stor/Documents/ITESO/Master/Microcontroller_Design/Quartus_projects/MIPS_pipeline/VirtualMemory_unit.v|
+!s90 -reportprogress|300|-work|work|-stats=none|/home/n3stor/Documents/ITESO/Master/Microcontroller_Design/Quartus_projects/MIPS_pipeline/VirtualMemory_unit.v|
+!i113 1
+R5
+R6
+n@virtual@memory_unit

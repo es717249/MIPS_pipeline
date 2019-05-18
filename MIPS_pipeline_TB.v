@@ -57,7 +57,7 @@ initial begin
     #0  enable =1'b0;
     SerialDataIn=1;
 	
-    #50 reset =1'b1;
+    #15 reset =1'b1;
     #0  enable =1'b1;
         
 end 

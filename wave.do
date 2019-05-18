@@ -2,7 +2,6 @@ onerror {resume}
 quietly WaveActivateNextPane {} 0
 add wave -noupdate /MIPS_pipeline_TB/reset
 add wave -noupdate /MIPS_pipeline_TB/enable
-add wave -noupdate -color Red /MIPS_pipeline_TB/clk
 add wave -noupdate -divider mux_to_updatePC_jump
 add wave -noupdate -radix hexadecimal /MIPS_pipeline_TB/testing_mips/MUX_to_updatePC_withJump/mux_sel
 add wave -noupdate -label PC_next_f -radix hexadecimal /MIPS_pipeline_TB/testing_mips/MUX_to_updatePC_withJump/data1
@@ -10,21 +9,24 @@ add wave -noupdate -label New_JumpAddress_m -radix hexadecimal /MIPS_pipeline_TB
 add wave -noupdate -label RD1_m -radix hexadecimal /MIPS_pipeline_TB/testing_mips/MUX_to_updatePC_withJump/data3
 add wave -noupdate -label Branch_or_not_m -radix hexadecimal /MIPS_pipeline_TB/testing_mips/MUX_to_updatePC_withJump/data4
 add wave -noupdate -radix hexadecimal /MIPS_pipeline_TB/testing_mips/MUX_to_updatePC_withJump/Data_out
+add wave -noupdate -divider ProgramCounter_Reg
+add wave -noupdate /MIPS_pipeline_TB/testing_mips/ProgramCounter_Reg/clk
+add wave -noupdate -radix hexadecimal /MIPS_pipeline_TB/testing_mips/ProgramCounter_Reg/Data_Input
+add wave -noupdate -radix hexadecimal /MIPS_pipeline_TB/testing_mips/ProgramCounter_Reg/Data_Output
 add wave -noupdate -divider Fetch_pipeline
 add wave -noupdate -label PC_current_f -radix hexadecimal /MIPS_pipeline_TB/testing_mips/Fetch_Pipeline1/Data_Input
 add wave -noupdate -label PC_current_d -radix hexadecimal /MIPS_pipeline_TB/testing_mips/Fetch_Pipeline1/Data_Output
 add wave -noupdate -divider 2
+add wave -noupdate -color Red /MIPS_pipeline_TB/clk
 add wave -noupdate -label Inst.Fetched_f -radix hexadecimal /MIPS_pipeline_TB/testing_mips/Fetch_Pipeline2/Data_Input
 add wave -noupdate -color Red -label Inst.Fetched_d -radix hexadecimal /MIPS_pipeline_TB/testing_mips/Fetch_Pipeline2/Data_Output
 add wave -noupdate -divider 3
 add wave -noupdate -label PC_next_f -radix hexadecimal /MIPS_pipeline_TB/testing_mips/Fetch_Pipeline3/Data_Input
 add wave -noupdate -label PC_next_d -radix hexadecimal /MIPS_pipeline_TB/testing_mips/Fetch_Pipeline3/Data_Output
 add wave -noupdate -divider V_ROM
-add wave -noupdate -radix hexadecimal /MIPS_pipeline_TB/testing_mips/VirtualAddress_ROM/address
 add wave -noupdate -radix hexadecimal /MIPS_pipeline_TB/testing_mips/VirtualAddress_ROM/translated_addr
 add wave -noupdate -radix hexadecimal /MIPS_pipeline_TB/testing_mips/VirtualAddress_ROM/MIPS_address
 add wave -noupdate -radix hexadecimal /MIPS_pipeline_TB/testing_mips/VirtualAddress_ROM/aligment_error
-add wave -noupdate -radix hexadecimal /MIPS_pipeline_TB/testing_mips/VirtualAddress_ROM/add_tmp
 add wave -noupdate -divider rom
 add wave -noupdate -radix hexadecimal /MIPS_pipeline_TB/testing_mips/ROM/addr
 add wave -noupdate -radix hexadecimal /MIPS_pipeline_TB/testing_mips/ROM/q
@@ -73,6 +75,19 @@ add wave -noupdate -radix unsigned /MIPS_pipeline_TB/testing_mips/Decode_Pipelin
 add wave -noupdate -divider SignExtended_out_d
 add wave -noupdate -radix hexadecimal /MIPS_pipeline_TB/testing_mips/signExt/immediate
 add wave -noupdate -radix hexadecimal /MIPS_pipeline_TB/testing_mips/signExt/extended_sign_out
+add wave -noupdate -divider decode_alucontrolFF
+add wave -noupdate -radix hexadecimal /MIPS_pipeline_TB/testing_mips/Decode_Pipeline_ALUControl/Data_Input
+add wave -noupdate -radix hexadecimal /MIPS_pipeline_TB/testing_mips/Decode_Pipeline_ALUControl/Data_Output
+add wave -noupdate -divider address_prep
+add wave -noupdate -radix hexadecimal /MIPS_pipeline_TB/testing_mips/add_prep/Mmemory_output
+add wave -noupdate -radix hexadecimal /MIPS_pipeline_TB/testing_mips/add_prep/opcode
+add wave -noupdate -radix hexadecimal /MIPS_pipeline_TB/testing_mips/add_prep/funct
+add wave -noupdate -radix unsigned /MIPS_pipeline_TB/testing_mips/add_prep/rs
+add wave -noupdate -radix unsigned /MIPS_pipeline_TB/testing_mips/add_prep/rt
+add wave -noupdate -radix unsigned /MIPS_pipeline_TB/testing_mips/add_prep/rd
+add wave -noupdate -radix hexadecimal /MIPS_pipeline_TB/testing_mips/add_prep/shamt
+add wave -noupdate -radix hexadecimal /MIPS_pipeline_TB/testing_mips/add_prep/immediate_data
+add wave -noupdate -radix hexadecimal /MIPS_pipeline_TB/testing_mips/add_prep/address_j
 TreeUpdate [SetDefaultTree]
 quietly WaveActivateNextPane
 add wave -noupdate -divider pipeline_FF1-Addresjwire
@@ -106,12 +121,12 @@ add wave -noupdate -label PC_next_e -radix hexadecimal /MIPS_pipeline_TB/testing
 add wave -noupdate -divider ALU_unit
 add wave -noupdate -radix hexadecimal /MIPS_pipeline_TB/testing_mips/alu_unit/dataA
 add wave -noupdate -radix hexadecimal /MIPS_pipeline_TB/testing_mips/alu_unit/dataB
+add wave -noupdate -color Red -radix hexadecimal /MIPS_pipeline_TB/testing_mips/alu_unit/dataC
 add wave -noupdate -radix hexadecimal /MIPS_pipeline_TB/testing_mips/alu_unit/control
 add wave -noupdate -radix hexadecimal /MIPS_pipeline_TB/testing_mips/alu_unit/shmt
 add wave -noupdate -radix hexadecimal /MIPS_pipeline_TB/testing_mips/alu_unit/carry
 add wave -noupdate -radix hexadecimal /MIPS_pipeline_TB/testing_mips/alu_unit/zero
 add wave -noupdate -radix hexadecimal /MIPS_pipeline_TB/testing_mips/alu_unit/negative
-add wave -noupdate -color Red -radix hexadecimal /MIPS_pipeline_TB/testing_mips/alu_unit/dataC
 add wave -noupdate -radix hexadecimal /MIPS_pipeline_TB/testing_mips/alu_unit/result_reg
 add wave -noupdate -radix hexadecimal /MIPS_pipeline_TB/testing_mips/alu_unit/mask
 add wave -noupdate -radix hexadecimal /MIPS_pipeline_TB/testing_mips/alu_unit/compl_B
@@ -206,8 +221,11 @@ add wave -noupdate -label Mem_or_Periph_D -radix hexadecimal /MIPS_pipeline_TB/t
 add wave -noupdate -label PC_next_w -radix hexadecimal /MIPS_pipeline_TB/testing_mips/MUX_to_WriteData_RegFile/data3
 add wave -noupdate -label peripheral_data -radix hexadecimal /MIPS_pipeline_TB/testing_mips/MUX_to_WriteData_RegFile/data4
 add wave -noupdate -label DatatoWD3 -radix hexadecimal /MIPS_pipeline_TB/testing_mips/MUX_to_WriteData_RegFile/Data_out
+add wave -noupdate -divider Reg_File
+add wave -noupdate -color Red -radix hexadecimal /MIPS_pipeline_TB/testing_mips/RegisterFile_Unit/Write_Data
+add wave -noupdate -radix unsigned /MIPS_pipeline_TB/testing_mips/RegisterFile_Unit/Write_Reg
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {Fetch {1325 ps} 0} {Decode {1375 ps} 0} {Execution {1425 ps} 0} {Mem_access {1475 ps} 0} {WriteBack {3225 ps} 0}
+WaveRestoreCursors {Fetch {775 ps} 0} {Decode {800 ps} 0} {Execution {850 ps} 0} {Mem_access {888 ps} 0} {WriteBack {1556 ps} 0}
 quietly wave cursor active 5
 configure wave -namecolwidth 176
 configure wave -valuecolwidth 100
@@ -223,4 +241,4 @@ configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits ps
 update
-WaveRestoreZoom {3135 ps} {3595 ps}
+WaveRestoreZoom {1138 ps} {1598 ps}
