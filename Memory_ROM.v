@@ -32,7 +32,8 @@ module Memory_ROM#(
 
 		//$readmemh("Pipelinecode_1.hex", rom);	//Test15: Pipeline testing
 		//$readmemh("Pipeline_datahazard.hex", rom);	//Test15: Pipeline with hazard testing
-		$readmemh("Pipeline_LwHazard.hex", rom);	//Test15: Pipeline with LW hazard testing
+		//$readmemh("Pipeline_LwHazard.hex", rom);	//Test15: Pipeline with LW hazard testing
+		$readmemh("Pipeline_swhazard.hex", rom);	//Test15: Pipeline with SW hazard testing
 		
 
 

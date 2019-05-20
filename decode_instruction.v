@@ -84,81 +84,81 @@ always @(opcode_reg,funct_reg,zero) begin
 			6'h0:  //sll
 			begin
 				destination_reg_indicator=1;	//destination will be rd
-				ALUControl_reg<=4'd8;			//operation Shift to left				
+				ALUControl_reg=4'd8;			//operation Shift to left				
 				ALUSrcBselector_reg=1'd0;		//select RD2
 				mult_operation_reg =0;			//indicates no mult operation
-				mflo_flag_reg		<=0;			//mflo operation not selected;
+				mflo_flag_reg		=0;			//mflo operation not selected;
 				flag_J_type_reg = 0;	//Not a J type instruction
 				MemWrite_reg    =0; /* not relevant */
 			end
 			6'h8: //jump register (jr)
 			begin
 				destination_reg_indicator=1;	//destination will be rd
-				ALUControl_reg<=4'd0;			//operation to be defined
+				ALUControl_reg=4'd0;			//operation to be defined
 				ALUSrcBselector_reg=1'd0;		//select RD2
 				mult_operation_reg =0;			//indicates no mult operation
-				mflo_flag_reg		<=0;			//mflo operation not selected;
+				mflo_flag_reg		=0;			//mflo operation not selected;
 				flag_J_type_reg = 2;			// jr type instruction,send 2 to mux 4_1
 				MemWrite_reg    =0; /* not relevant */
 			end
 			6'h12: //mflo
 			begin
 				destination_reg_indicator=1;	//destination will be rd
-				ALUControl_reg		<=4'd0;			//operation multiplication
-				ALUSrcBselector_reg	<=1'd0;			//select RD2
-				mult_operation_reg 	<=0;			//indicates no mult operation
-				mflo_flag_reg		<=1;			//mflo operation selected;
+				ALUControl_reg		=4'd0;			//operation multiplication
+				ALUSrcBselector_reg	=1'd0;			//select RD2
+				mult_operation_reg 	=0;			//indicates no mult operation
+				mflo_flag_reg		=1;			//mflo operation selected;
 				flag_J_type_reg = 0;	//Not a J type instruction
 				MemWrite_reg    =0; /* not relevant */
 			end
 			6'h18: //mult
 			begin
 				destination_reg_indicator=1;	//destination will be rd
-				ALUControl_reg<=4'd0;			//operation multiplication
+				ALUControl_reg=4'd0;			//operation multiplication
 				ALUSrcBselector_reg=1'd0;		//select RD2
 				mult_operation_reg =1;			//indicates mult operation
-				mflo_flag_reg		<=0;			//mflo operation not selected;
+				mflo_flag_reg		=0;			//mflo operation not selected;
 				flag_J_type_reg = 0;	//Not a J type instruction
 				MemWrite_reg    =0; /* not relevant */
 			end
 			6'h20: //add
 			begin
 				destination_reg_indicator=1;	//destination will be rd
-				ALUControl_reg<=4'd2;			//operation OR				
+				ALUControl_reg=4'd2;			//operation OR				
 				ALUSrcBselector_reg=1'd0;		//select RD2
 				mult_operation_reg =0;			//indicates no mult operation
-				mflo_flag_reg		<=0;			//mflo operation not selected;
+				mflo_flag_reg		=0;			//mflo operation not selected;
 				flag_J_type_reg = 0;	//Not a J type instruction
 				MemWrite_reg    =0; /* not relevant */
 			end
 			6'h22: //sub
 			begin
 				destination_reg_indicator=1;	//destination will be rd
-				ALUControl_reg<=4'd1;			//operation subtract
+				ALUControl_reg=4'd1;			//operation subtract
 				ALUSrcBselector_reg=1'd0;		//select RD2
 				mult_operation_reg =0;			//indicates no mult operation
-				mflo_flag_reg		<=0;			//mflo operation not selected;
+				mflo_flag_reg		=0;			//mflo operation not selected;
 				flag_J_type_reg = 0;	//Not a J type instruction
 				MemWrite_reg    =0; /* not relevant */
 			end
 			6'h25: ///or
 			begin
 				destination_reg_indicator=1;	//destination will be rd
-				ALUControl_reg<=4'd6;			//operation OR				
+				ALUControl_reg=4'd6;			//operation OR				
 				ALUSrcBselector_reg=1'd0;		//select RD2
 				mult_operation_reg =0;			//indicates no mult operation
-				mflo_flag_reg		<=0;			//mflo operation not selected;
+				mflo_flag_reg		=0;			//mflo operation not selected;
 				flag_J_type_reg = 0;	//Not a J type instruction
 				MemWrite_reg    =0; /* not relevant */
 			end
 			6'h2a:	//slt - 0x2A
 			begin
 			  	destination_reg_indicator=1;	//destination will be rd
-				ALUControl_reg<=4'd12;			//operation slt
+				ALUControl_reg=4'd12;			//operation slt
 				/*@TODO: The operation subtract could be used, and the flag negative could be used to compare the values */
 				ALUSrcBselector_reg=1'd0;			//select RD2
 				mult_operation_reg =0;			//indicates no mult operation
-				mflo_flag_reg		<=0;			//mflo operation not selected;
+				mflo_flag_reg		=0;			//mflo operation not selected;
 				flag_J_type_reg = 0;	//Not a J type instruction
 				MemWrite_reg    =0; /* not relevant */
 			end
@@ -166,10 +166,10 @@ always @(opcode_reg,funct_reg,zero) begin
 			default:
 			begin
 				destination_reg_indicator=1;	//destination will be rd
-				ALUControl_reg<=4'd2;			//operation add 				
+				ALUControl_reg=4'd2;			//operation add 				
 				ALUSrcBselector_reg=1'd0;		//select RD2
 				mult_operation_reg =0;			//indicates no mult operation
-				mflo_flag_reg		<=0;			//mflo operation not selected;
+				mflo_flag_reg		=0;			//mflo operation not selected;
 				flag_J_type_reg = 0;	//Not a J type instruction
 				MemWrite_reg    =0; /* not relevant */
 			end
@@ -192,7 +192,7 @@ always @(opcode_reg,funct_reg,zero) begin
 
 				flag_sw_reg=1'b0;		//not relevant
 				destination_reg_indicator=0;	//not relevant
-				ALUControl_reg<=4'd0;			//not relevant
+				ALUControl_reg=4'd0;			//not relevant
 				ALUSrcBselector_reg=1'd0;			//not relevant
 				MemWrite_reg    =0; /* not relevant */
 				flag_bne_reg = 1'b0;
@@ -208,7 +208,7 @@ always @(opcode_reg,funct_reg,zero) begin
 
 				flag_sw_reg=1'b0;		//not relevant
 				destination_reg_indicator=2;	//Use the 3rd source: 5'd31 for $ra register
-				ALUControl_reg<=4'd0;			//not relevant
+				ALUControl_reg=4'd0;			//not relevant
 				ALUSrcBselector_reg=1'd0;		//not relevant
 				MemWrite_reg    =0; /* not relevant */
 				flag_bne_reg = 1'b0;
@@ -219,7 +219,7 @@ always @(opcode_reg,funct_reg,zero) begin
 			6'b000100: //beq - 0x04
 			begin
 				destination_reg_indicator=0;	//destination will be rt
-				ALUControl_reg<=4'd1;			//operation subtract 				
+				ALUControl_reg=4'd1;			//operation subtract 				
 				flag_lw_reg=1'd0;
 				writedata_indicator_reg = 2'd0;		//useful to save ALUout result into the register file
 				see_uartflag_ind_reg = 0;			//select Rx flag
@@ -245,7 +245,7 @@ always @(opcode_reg,funct_reg,zero) begin
 			begin 
 				/* Edit these values */
 				destination_reg_indicator=0;	//destination will be rt
-				ALUControl_reg<=4'd1;			//operation subtract 				
+				ALUControl_reg=4'd1;			//operation subtract 				
 				flag_lw_reg=1'd0;
 				writedata_indicator_reg = 2'd0;		//useful to save ALUout result into the register file
 				see_uartflag_ind_reg = 0;			//select Rx flag
@@ -269,7 +269,7 @@ always @(opcode_reg,funct_reg,zero) begin
 			begin 
 				/* Edit these values */
 				destination_reg_indicator=0;	//destination will be rt
-				ALUControl_reg<=4'd2;			//operation add 				
+				ALUControl_reg=4'd2;			//operation add 				
 				flag_lw_reg=1'd0;
 				writedata_indicator_reg = 2'd3;		//useful to save Rx_flag into the register file
 				see_uartflag_ind_reg = 0;			//select Rx flag
@@ -285,7 +285,7 @@ always @(opcode_reg,funct_reg,zero) begin
 			begin 
 				/* Edit these values */
 				destination_reg_indicator=0;	//destination will be rt
-				ALUControl_reg<=4'd2;			//operation add 				
+				ALUControl_reg=4'd2;			//operation add 				
 				flag_lw_reg=1'd0;
 				writedata_indicator_reg = 2'd3;		//useful to save Rx_flag into the register file
 				see_uartflag_ind_reg = 1;			//select Rx flag
@@ -302,7 +302,7 @@ always @(opcode_reg,funct_reg,zero) begin
 			//Tengo que guardar estos datos en el register file
 			begin
 				destination_reg_indicator=0;	//destination will be rt
-				ALUControl_reg<=4'd2;			//operation add 				
+				ALUControl_reg=4'd2;			//operation add 				
 				ALUSrcBselector_reg=1'd1;			//ALU SrcB select : immediate
 				flag_lw_reg=1'd0;
 				writedata_indicator_reg = 2'd0;		//useful to save ALUout result into the register file
@@ -318,7 +318,7 @@ always @(opcode_reg,funct_reg,zero) begin
 			6'b001010:	//slti - 0x0A
 			begin
 			  	destination_reg_indicator=0;	//destination will be rt
-				ALUControl_reg<=4'd12;			//operation slti
+				ALUControl_reg=4'd12;			//operation slti
 				/*@TODO: The operation subtract could be used, and the flag negative could be used to compare the values */
 				ALUSrcBselector_reg=1'd1;			//select immediate value
 				flag_lw_reg=1'd0;
@@ -335,7 +335,7 @@ always @(opcode_reg,funct_reg,zero) begin
 			6'b001100: //andi - 0x0C
 			begin
 				destination_reg_indicator=0;	//destination will be rt
-				ALUControl_reg<=4'd5;			//operation and 	
+				ALUControl_reg=4'd5;			//operation and 	
 				ALUSrcBselector_reg=1'd1;			
 				flag_lw_reg=1'd0;
 				writedata_indicator_reg = 2'd0;		//useful to save ALUout result into the register file
@@ -351,7 +351,7 @@ always @(opcode_reg,funct_reg,zero) begin
 			6'b001101: //ori - 0x0D
 			begin
 				destination_reg_indicator=0;	//destination will be rt
-				ALUControl_reg<=4'd6;			//operation or
+				ALUControl_reg=4'd6;			//operation or
 				ALUSrcBselector_reg=1'd1;			
 				flag_lw_reg=1'd0;
 				writedata_indicator_reg = 2'd0;		//useful to save ALUout result into the register file
@@ -367,7 +367,7 @@ always @(opcode_reg,funct_reg,zero) begin
 			6'b001111:	//lui - 0x0F
 			begin
 				destination_reg_indicator=0;	//destination will be rt
-				ALUControl_reg<=4'b1011;			//0x13:shift <<16 operation
+				ALUControl_reg=4'b1011;			//0x13:shift <<16 operation
 				//create a flag so we can pass to write back 
 				flag_lw_reg=1'd0;
 				writedata_indicator_reg = 2'd0;		//useful to save ALUout result into the register file
@@ -384,7 +384,7 @@ always @(opcode_reg,funct_reg,zero) begin
 			6'b100011: /* lw	- 0x23 */
 			begin
 				destination_reg_indicator=0;	//destination will be rt
-				ALUControl_reg<=4'd2;			//
+				ALUControl_reg=4'd2;			//
 				flag_lw_reg=1'd1;	/* @TODO: modify this to be writedata_indicator */
 				writedata_indicator_reg = 2'd1;		//useful to save ALUout result into the register file
 				see_uartflag_ind_reg = 0;			//select Rx flag
@@ -400,7 +400,7 @@ always @(opcode_reg,funct_reg,zero) begin
 			6'b101011: //sw - 0x2B
 			begin
 				destination_reg_indicator=0;	//destination will be rt
-				ALUControl_reg<=4'd2;			//operation add 				
+				ALUControl_reg=4'd2;			//operation add 				
 				//create a flag so we can pass to write back 
 				flag_lw_reg=1'd0;
 				writedata_indicator_reg = 2'd0;		//useful to save ALUout result into the register file
@@ -417,7 +417,7 @@ always @(opcode_reg,funct_reg,zero) begin
 
 			default:
 			begin
-				ALUControl_reg<=4'd2;//operation add  /**** CHECK **/
+				ALUControl_reg=4'd2;//operation add  /**** CHECK **/
 				destination_reg_indicator=0;//destination will be rt
 				flag_lw_reg=1'd0;
 				writedata_indicator_reg = 2'd0;		//useful to save ALUout result into the register file

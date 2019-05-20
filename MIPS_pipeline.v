@@ -241,6 +241,7 @@ wire PC_en_hazard;                                        /* Enable signal of Pr
 /* RAM */
 wire MemWrite_wire;			//@Control signal: Write enable for the memory unit
 wire MemWrite_wire_e;			//@Control signal: Write enable for the memory unit
+wire MemWrite_wire_m;			//@Control signal: Write enable for the memory unit
 /* Register File */
 wire [1:0] RegDst_wire/*synthesis keep*/;					/*@Control signal: for Write reg in Register File */
 wire [1:0] RegDst_wire_e/*synthesis keep*/;					/*@Control signal: for Write reg in Register File */
@@ -261,17 +262,24 @@ wire [1:0] flag_Jtype_wire_e;
 /* Detector of sw and lw operation */
 wire sw_inst_detector/*synthesis keep*/;
 wire sw_inst_detector_e/*synthesis keep*/;
+wire sw_inst_detector_m/*synthesis keep*/;
+
 wire lw_inst_detector/*synthesis keep*/;
 wire lw_inst_detector_e/*synthesis keep*/;
+wire lw_inst_detector_m/*synthesis keep*/;
+wire lw_inst_detector_w/*synthesis keep*/;
 /* Demux aluout */
 wire demux_aluout_sel/*synthesis keep*/;
 wire demux_aluout_sel_e/*synthesis keep*/;
 
 /* assign enable_fetchFF_stage = 1; */
 assign enable_decodeFF_stage= 1;
-/* assign enable_decodeFF_stage= PC_en_hazard; */
 assign enable_executionFF_stage =1;
 assign enable_memaccFF_stage = 1;
+
+wire sw_lw_noStall;
+wire [DATA_WIDTH-1:0] RD2_tmp;
+
 
 /*****************************************************************************************************************************
                 F O R W A R D    U N I T 
@@ -431,6 +439,7 @@ Hazard_Detection_Unit hazard_unit
     .ID_EX_rt(mux_A3out_e),
     .IF_ID_rs(rs_wire),
     .IF_ID_rt(rt_wire),
+    .sw_detected(sw_inst_detector),
     /* Outputs */
     .PC_En(PC_en_hazard),
     .IFID_ctrl(enable_fetchFF_stage),
@@ -476,7 +485,6 @@ decode_instruction decoder_module
     .see_uartflag_ind(see_uartflag_wire),    
 	.MemWrite(MemWrite_wire),
 	/* .RegWrite(RegWrite_wire), */
-	/* .PC_En(PC_en_hazard), */
     .flag_bne(flag_bne),
     .flag_beq(flag_beq)
 );
@@ -854,7 +862,7 @@ mux4to1#(
     .data1(SrcB_e),
     .data2(datatoWD3),
     .data3(ALU_result_m),			/* For writing to $ra (31) register */
-    .data4(32'd0),           /* @TODO: for future use */
+    .data4(0),           /* @TODO: for future use */
     .Data_out(SrcB)
 );
 
@@ -890,6 +898,7 @@ Forward_Unit Fw_Unit (
     .rs_current(rs_wire_e),
     .RegDest_Dfw(mux_A3out_m),
     .RegDest_Mfw(mux_A3out_w),
+    .sw_detected(sw_inst_detector_e),
     .ForwardA_out(ForwardA),
     .ForwardB_out(ForwardB)
 );
@@ -940,7 +949,8 @@ Register#(
     .reset(reset),
     .enable(enable_executionFF_stage),
     .Data_Input(SrcB), 
-    .Data_Output(RD2_m) 
+    /* .Data_Output(RD2_m) */ 
+    .Data_Output(RD2_tmp)
 );
 
 
@@ -1046,6 +1056,28 @@ Register#(
 );
 
 
+Register#(
+    .WORD_LENGTH(1)
+)Execution_Pipeline_flag_sw
+(		
+    .clk(!clk),
+    .reset(reset),
+    .enable(enable_decodeFF_stage),
+    .Data_Input(sw_inst_detector_e), 
+    .Data_Output(sw_inst_detector_m) 
+);
+
+Register#(
+    .WORD_LENGTH(1)
+)Execution_Pipeline_flag_lw
+(		
+    .clk(!clk),
+    .reset(reset),
+    .enable(enable_decodeFF_stage),
+    .Data_Input(lw_inst_detector_e), 
+    .Data_Output(lw_inst_detector_m) 
+);
+
 assign flag_Jtype_wire2 = (flag_bne_m ==1'b1 && zero_m == 1'b0)|| (flag_beq_m ==1'b1 && zero_m == 1'b1) ? (2'd3) : (2'd0) ; 
 
 
@@ -1138,7 +1170,8 @@ Memory_RAM #(
 
     .addr(RAM_addr_Translated[7:0]),	    //Address for ram
 	.wdata(WD_input),               //Write Data for RAM data memory
-    .we(MemWrite_wire),				//Write enable signal
+    //.we(MemWrite_wire),				//Write enable signal
+    .we(MemWrite_wire_m),				//Write enable signal    
 	.clk(clk), 							
 	//output
 	.q(Data_RAM_m)
@@ -1313,6 +1346,41 @@ Register#(
     .Data_Output(flag_beq_w) 
 );
 
+Register#(
+    .WORD_LENGTH(1)
+)MemAccess_Pipeline_MemWrite
+(		
+    .clk(!clk),
+    .reset(reset),
+    .enable(enable_decodeFF_stage),
+    .Data_Input(MemWrite_wire_e), 
+    .Data_Output(MemWrite_wire_m) 
+);
+
+Register#(
+    .WORD_LENGTH(1)
+)MemAccess_Pipeline_flag_lw
+(		
+    .clk(!clk),
+    .reset(reset),
+    .enable(enable_decodeFF_stage),
+    .Data_Input(lw_inst_detector_m), 
+    .Data_Output(lw_inst_detector_w) 
+);
+
+
+assign sw_lw_noStall = lw_inst_detector_w & sw_inst_detector_m;
+
+//####################	 Mux SW-LW no stall             ######################
+mux2to1#(
+    .Nbit(DATA_WIDTH)
+)mux_sw_lw_noStall
+(
+    .mux_sel(sw_lw_noStall),		/* 1= R type (rd), 0= I type (rt) */
+    .data1(RD2_tmp),
+    .data2(Data_RAM_w),
+    .Data_out(RD2_m)
+);
 
  /* {{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{
 
