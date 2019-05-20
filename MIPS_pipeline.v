@@ -81,6 +81,11 @@ wire flag_beq;
 /*****************************************************************************************************************************
                 E X E C U T I O N   S I G N A L S 
 *****************************************************************************************************************************/
+/* Address preparation */
+wire [4 : 0]rs_wire_e/*synthesis keep*/;		 			//source 1	(R-I type)
+wire [4 : 0]rt_wire_e/*synthesis keep*/;		 			//source 2	(R-I type)
+wire [4 : 0]rd_wire_e/*synthesis keep*/;		  			//Destination: 15:11 bit (R type)
+
 /* Program counter */
 wire [3:0] PC_current_e/*synthesis keep*/;	/* Current Program counter */
 wire [DATA_WIDTH-1:0] PC_next_e;	                    /* signal from mux to PC register */
@@ -102,16 +107,23 @@ Signals for ALU unit
 wire zero_e;							//zero flag
 wire carry_e;							//carry flag
 wire negative_e;						//negative flag
-wire [DATA_WIDTH-1:0] SrcB/*synthesis keep*/;			//input 1 of ALU
+wire [DATA_WIDTH-1:0] SrcA/*synthesis keep*/;			//input 1 of ALU
+wire [DATA_WIDTH-1:0] SrcB_e/*synthesis keep*/;			
+wire [DATA_WIDTH-1:0] SrcB/*synthesis keep*/;			//input 2 of ALU
 wire [DATA_WIDTH-1 : 0]ALU_result_e/*synthesis keep*/;	//Output result of ALU unit
 /********************************************
 Signals for Shift and concatenate jump address module 
 *********************************************/
 wire [DATA_WIDTH-1:0] New_JumpAddress_e;
+
+/* Signals for Mux_RtRd */
+wire mux_rtrd_ctrl;
+
 /* Flip flop stage for Pipeline */
 wire enable_executionFF_stage;
 wire flag_bne_e;
 wire flag_beq_e;
+
 /*****************************************************************************************************************************
                 M E M O R Y    A C C E S S   S I G N A L S 
 *****************************************************************************************************************************/
@@ -184,6 +196,7 @@ wire enable_memaccFF_stage;
 
 wire flag_bne_m;
 wire flag_beq_m;
+
 /*****************************************************************************************************************************
                 W R I T E B A C K   S I G N A L S 
 *****************************************************************************************************************************/
@@ -223,7 +236,8 @@ wire mflo_flag;
 wire mflo_flag_e;
 /* Program Counter */
 wire startPC_wire;                                      /* @Control signal: for bootloader mux*/
-wire PC_En_wire;                                        /* Enable signal of ProgramCounter_Reg */
+wire PC_en_hazard;                                        /* Enable signal of ProgramCounter_Reg */
+//wire PC_en_boot=1;
 /* RAM */
 wire MemWrite_wire;			//@Control signal: Write enable for the memory unit
 wire MemWrite_wire_e;			//@Control signal: Write enable for the memory unit
@@ -248,16 +262,31 @@ wire [1:0] flag_Jtype_wire_e;
 wire sw_inst_detector/*synthesis keep*/;
 wire sw_inst_detector_e/*synthesis keep*/;
 wire lw_inst_detector/*synthesis keep*/;
+wire lw_inst_detector_e/*synthesis keep*/;
 /* Demux aluout */
 wire demux_aluout_sel/*synthesis keep*/;
 wire demux_aluout_sel_e/*synthesis keep*/;
 
-assign enable_fetchFF_stage = 1;
+/* assign enable_fetchFF_stage = 1; */
 assign enable_decodeFF_stage= 1;
+/* assign enable_decodeFF_stage= PC_en_hazard; */
 assign enable_executionFF_stage =1;
 assign enable_memaccFF_stage = 1;
 
+/*****************************************************************************************************************************
+                F O R W A R D    U N I T 
+*****************************************************************************************************************************/
+wire [1:0] ForwardA;
+wire [1:0] ForwardB;
+/*****************************************************************************************************************************
+                S T A L L    U N I T 
+*****************************************************************************************************************************/
+wire stall_ctrl_wire;
+wire reset_stall;
 
+
+
+//assign PC_En_wire_s = PC_en_boot & PC_en_hazard ;
 
 /* {{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{
 
@@ -301,7 +330,8 @@ Register#(
 (		
     .clk(clk),
     .reset(reset),
-    .enable(PC_En_wire),	        /* Does not need a control signal */
+    //.enable(PC_en_boot),
+    .enable( PC_en_hazard ),	        
     .Data_Input(PC_source), 	//This comes from the ALU Result after MUX_for_PC_source
     .Data_Output(PC_current_f)	//output Program counter update
 );
@@ -393,6 +423,21 @@ ControlUnit CtrlUnit(
     .RegWrite(RegWrite_wire)
 );
 
+
+Hazard_Detection_Unit hazard_unit
+(
+    /* Inputs */
+    .lw_detected(lw_inst_detector_e),
+    .ID_EX_rt(mux_A3out_e),
+    .IF_ID_rs(rs_wire),
+    .IF_ID_rt(rt_wire),
+    /* Outputs */
+    .PC_En(PC_en_hazard),
+    .IFID_ctrl(enable_fetchFF_stage),
+    .stall_ctrl(stall_ctrl_wire)
+);
+
+
 //####################     Address preparation   #######################
 address_preparation add_prep
 (	
@@ -431,7 +476,7 @@ decode_instruction decoder_module
     .see_uartflag_ind(see_uartflag_wire),    
 	.MemWrite(MemWrite_wire),
 	/* .RegWrite(RegWrite_wire), */
-	.PC_En(PC_En_wire),
+	/* .PC_En(PC_en_hazard), */
     .flag_bne(flag_bne),
     .flag_beq(flag_beq)
 );
@@ -478,6 +523,12 @@ Register_File #(
 
 
 //####################     Pipeline flip flops   #######################
+
+
+
+//assign reset_stall = reset & stall_ctrl_wire;
+
+
 
 Register#(
     .WORD_LENGTH(26)
@@ -594,6 +645,16 @@ Register#(
     .Data_Output(sw_inst_detector_e) 
 );
 
+Register#(
+    .WORD_LENGTH(1)
+)Decode_Pipeline_flag_lw
+(		
+    .clk(!clk),
+    .reset(reset),
+    .enable(enable_decodeFF_stage),
+    .Data_Input(lw_inst_detector), 
+    .Data_Output(lw_inst_detector_e) 
+);
 
 /* Register#(
     .WORD_LENGTH(2)
@@ -696,6 +757,44 @@ Register#(
     .Data_Output(flag_beq_e) 
 );
 
+
+
+
+Register#(
+    .WORD_LENGTH(5)
+)Decode_Pipeline_rs
+(		
+    .clk(!clk),
+    .reset(reset),
+    .enable(enable_decodeFF_stage),
+    .Data_Input(rs_wire), 
+    .Data_Output(rs_wire_e) 
+);
+
+Register#(
+    .WORD_LENGTH(5)
+)Decode_Pipeline_rt
+(		
+    .clk(!clk),
+    .reset(reset),
+    .enable(enable_decodeFF_stage),
+    .Data_Input(rt_wire), 
+    .Data_Output(rt_wire_e) 
+);
+
+Register#(
+    .WORD_LENGTH(5)
+)Decode_Pipeline_rd
+(		
+    .clk(!clk),
+    .reset(reset),
+    .enable(enable_decodeFF_stage),
+    .Data_Input(rd_wire), 
+    .Data_Output(rd_wire_e) 
+);
+
+
+
  /* {{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{
 
                                         E X E C U T I O N    S T A G E
@@ -724,7 +823,7 @@ mux2to1#(
     .mux_sel(sel_muxALU_srcB_e),		/* 1= R type (rd), 0= I type (rt) */
     .data1(RD2_e),
     .data2(sign_extended_out_e),
-    .Data_out(SrcB)
+    .Data_out(SrcB_e)
 );
 
 //####################	 Shifted <<2 to Mux SrcB             ######################
@@ -732,13 +831,40 @@ assign shifted2[1:0]=2'd0;
 assign shifted2[DATA_WIDTH-1:2] = sign_extended_out_e[DATA_WIDTH-1-2:0];		/* immediate value x 4 */
 
 
+
+//###############   Mux for Forward A to ALU    ##################
+
+mux4to1#(
+    .Nbit(DATA_WIDTH)
+)Mux_Fw_A
+(
+    .mux_sel(ForwardA),		/* 1= R type (rd), 0= I type (rt) */
+    .data1(RD1_e),
+    .data2(datatoWD3),
+    .data3(ALU_result_m),			/* For writing to $ra (31) register */
+    .data4(32'd0),           /* @TODO: for future use */
+    .Data_out(SrcA)
+);
+
+mux4to1#(
+    .Nbit(DATA_WIDTH)
+)Mux_Fw_B
+(
+    .mux_sel(ForwardB),		/* 1= R type (rd), 0= I type (rt) */
+    .data1(SrcB_e),
+    .data2(datatoWD3),
+    .data3(ALU_result_m),			/* For writing to $ra (31) register */
+    .data4(32'd0),           /* @TODO: for future use */
+    .Data_out(SrcB)
+);
+
 //####################        ALU   #######################
 ALU #(
     .WORD_LENGTH(DATA_WIDTH)
 )alu_unit
 (
     /* inputs */	
-    .dataA(RD1_e),					//From MUX_to_updateSrcA 	, input 1
+    .dataA(SrcA),					//From MUX_to_updateSrcA 	, input 1
     .dataB(SrcB),					//From Mux 4 to 1		, input 2 
     //.control(ALUControl_wire),		//@Control signal
     .control(ALUControl_wire_e),		//@Control signal
@@ -759,11 +885,21 @@ Adder #(
     .C(Branch_or_not_e)
 );
 
+Forward_Unit Fw_Unit (
+    .rt_current(rt_wire_e),
+    .rs_current(rs_wire_e),
+    .RegDest_Dfw(mux_A3out_m),
+    .RegDest_Mfw(mux_A3out_w),
+    .ForwardA_out(ForwardA),
+    .ForwardB_out(ForwardB)
+);
+
+
 //####################     Pipeline flip flops   #######################
 
 Register#(
     .WORD_LENGTH(DATA_WIDTH)
-)Execution_Pipeline1
+)Execution_Pipeline_RD1
 (		
     .clk(!clk),
     .reset(reset),
@@ -775,7 +911,7 @@ Register#(
 
 Register#(
     .WORD_LENGTH(DATA_WIDTH)
-)Execution_Pipeline2
+)Execution_Pipeline_newJmp
 (		
     .clk(!clk),
     .reset(reset),
@@ -787,7 +923,7 @@ Register#(
 
 Register#(
     .WORD_LENGTH(1)
-)Execution_Pipeline3
+)Execution_Pipeline_Zero
 (		
     .clk(!clk),
     .reset(reset),
@@ -798,19 +934,19 @@ Register#(
 
 Register#(
     .WORD_LENGTH(DATA_WIDTH)
-)Execution_Pipeline4
+)Execution_Pipeline_Srcb
 (		
     .clk(!clk),
     .reset(reset),
     .enable(enable_executionFF_stage),
-    .Data_Input(RD2_e), 
+    .Data_Input(SrcB), 
     .Data_Output(RD2_m) 
 );
 
 
 Register#(
     .WORD_LENGTH(1)
-)Execution_Pipeline5
+)Execution_Pipeline_carry
 (		
     .clk(!clk),
     .reset(reset),
@@ -822,7 +958,7 @@ Register#(
 
 Register#(
     .WORD_LENGTH(1)
-)Execution_Pipeline6
+)Execution_Pipeline_neg
 (		
     .clk(!clk),
     .reset(reset),
@@ -833,7 +969,7 @@ Register#(
 
 Register#(
     .WORD_LENGTH(DATA_WIDTH)
-)Execution_Pipeline7
+)Execution_Pipeline_ALURes
 (		
     .clk(!clk),
     .reset(reset),
@@ -844,7 +980,7 @@ Register#(
 
 Register#(
     .WORD_LENGTH(DATA_WIDTH)
-)Execution_Pipeline8
+)Execution_Pipeline_branch
 (		
     .clk(!clk),
     .reset(reset),
@@ -855,7 +991,7 @@ Register#(
 
 Register#(
     .WORD_LENGTH(DATA_WIDTH)
-)Execution_Pipeline9
+)Execution_Pipeline_PCnext
 (		
     .clk(!clk),
     .reset(reset),
@@ -910,7 +1046,6 @@ Register#(
 );
 
 
-/* assign flag_Jtype_wire2 = (flag_bne_e ==1'b1 && zero_e == 1'b0  ) ? (2'd3) : (2'd0) ;  */
 assign flag_Jtype_wire2 = (flag_bne_m ==1'b1 && zero_m == 1'b0)|| (flag_beq_m ==1'b1 && zero_m == 1'b1) ? (2'd3) : (2'd0) ; 
 
 
@@ -1177,6 +1312,7 @@ Register#(
     .Data_Input(flag_beq_m), 
     .Data_Output(flag_beq_w) 
 );
+
 
  /* {{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{
 

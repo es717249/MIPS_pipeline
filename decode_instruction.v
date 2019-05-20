@@ -20,7 +20,7 @@ module decode_instruction
 	output see_uartflag_ind,					//indicator to select Rx flag or Tx flag for the register file
 	output MemWrite,
 	/* output RegWrite, */
-	output PC_En,
+	/* output PC_En, */
 	output flag_bne,	/* flag for bne */
 	output flag_beq	/* flag for beq */
 
@@ -60,7 +60,7 @@ assign see_uartflag_ind = see_uartflag_ind_reg;
 assign MemWrite = MemWrite_reg;		/* Signal to write to RAM memory */
 assign flag_bne = flag_bne_reg;
 assign flag_beq = flag_beq_reg;
-assign PC_En  = 1 ;    /* Signal for Program counter enable register */
+//assign PC_En  = 1 ;    /* Signal for Program counter enable register */
 
 
 always @(opcode_reg,funct_reg,zero) begin	
@@ -367,7 +367,7 @@ always @(opcode_reg,funct_reg,zero) begin
 			6'b001111:	//lui - 0x0F
 			begin
 				destination_reg_indicator=0;	//destination will be rt
-				ALUControl_reg<=4'b1011;			//shift <<16 operation
+				ALUControl_reg<=4'b1011;			//0x13:shift <<16 operation
 				//create a flag so we can pass to write back 
 				flag_lw_reg=1'd0;
 				writedata_indicator_reg = 2'd0;		//useful to save ALUout result into the register file

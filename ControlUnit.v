@@ -1,18 +1,19 @@
 module ControlUnit
 #(
     //Machine states
-	parameter IDLE=1'd0,
+	parameter IDLE=1'd0,    
 	parameter NORMAL=1'd1	
 )
 (
     /* Inputs */
     input clk,              //clk signal
 	input reset,            //async signal to reset
-    input sw_flag,
+    input sw_flag,    
     /* Outputs */
     
     output Start_PC,
     output RegWrite
+
 
     );
 
@@ -30,17 +31,15 @@ assign Start_PC = Start_PC_reg;
 assign RegWrite = RegWrite_reg;
 
 
-
-
-
 always @(posedge clk or negedge reset) begin
     if(reset==1'b0) begin
         state <= IDLE;
     end else begin
         case(state)
+            
             IDLE:
             begin
-                state <= NORMAL;
+                state<= NORMAL;
             end
             NORMAL:
             begin

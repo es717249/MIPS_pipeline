@@ -30,7 +30,9 @@ module Memory_ROM#(
 		//$readmemh("Test_uartrxtx.hex", rom);	//Test13: testing uart rx and tx
 		//$readmemh("Factorial_uart.hex", rom);	//Test14: Factorial and uart 
 
-		$readmemh("Pipelinecode_1.hex", rom);	//Test15: Pipeline testing
+		//$readmemh("Pipelinecode_1.hex", rom);	//Test15: Pipeline testing
+		//$readmemh("Pipeline_datahazard.hex", rom);	//Test15: Pipeline with hazard testing
+		$readmemh("Pipeline_LwHazard.hex", rom);	//Test15: Pipeline with LW hazard testing
 		
 
 
